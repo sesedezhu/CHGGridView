@@ -30,13 +30,27 @@
 
 @end
 
-@interface CHGGridView : UIScrollView
+@interface CHGGridView : UIScrollView<UIScrollViewDelegate>
 
 @property(nonatomic,strong) NSArray * items;
 @property(nonatomic,strong) NSMutableArray * cells;
 @property(nonatomic,weak) id<CHGGridViewDatasource> gridViewDatasource;
 @property(nonatomic,weak) id<CHGGridViewDelegate> gridViewDelegate;
-@property(nonatomic,assign) BOOL layoutEnable;
+//@property(nonatomic,assign) BOOL layoutEnable;
+
+//新增内存优化方案
+@property(nonatomic,strong) NSMutableDictionary * queue;//存放实例化的cell数据
+
+//-(void)registerWithNibName:(NSString*)nibName;
+-(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier;
+///通过标识符获取cell
+-(CHGGridViewCell*)dequeueReusableCellWithIdentifier:(NSString*)identifier withPosition:(NSInteger)position;
+
+@property(nonatomic,assign) NSInteger curryShowPage;///当前显示的页面
+@property(nonatomic,assign) NSInteger row;//numberOfRowInPage;//一页中最多存在的cell数量
+@property(nonatomic,assign) NSInteger column;//numberOfColumInPage;//一页中最多存在的行数
+@property(nonatomic,assign) CGFloat cellHeight;//cell的高度
+@property(nonatomic,assign) CGFloat cellWidth;//cell的宽度
 
 -(void)reloadData;
 

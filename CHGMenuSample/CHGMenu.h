@@ -25,5 +25,8 @@
 @property(nonatomic,assign) BOOL showPageControl;
 //@property(nonatomic,assign) PageControlShow pageControlShow;
 
+-(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier;
+///通过标识符获取cell
+-(CHGGridViewCell*)dequeueReusableCellWithIdentifier:(NSString*)identifier  withPosition:(NSInteger)position;
 
 @end

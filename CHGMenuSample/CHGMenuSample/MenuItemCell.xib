@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az9-0Q-Ae1">
-                    <rect key="frame" x="0.0" y="579" width="600" height="21"/>
+                    <rect key="frame" x="0.0" y="329.5" width="600" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="uwM-T2-CYF"/>
                     </constraints>
@@ -21,7 +21,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rvG-XH-0jj">
-                    <rect key="frame" x="275" y="524" width="50" height="50"/>
+                    <rect key="frame" x="275" y="275" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Xkp-r0-01E"/>
                         <constraint firstAttribute="width" constant="50" id="YGr-r1-rbK"/>
@@ -35,11 +35,15 @@
                 <constraint firstItem="rvG-XH-0jj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="O2C-WR-zAb"/>
                 <constraint firstItem="rvG-XH-0jj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Wfj-xE-tuf"/>
                 <constraint firstItem="az9-0Q-Ae1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kfl-wk-iqZ"/>
+                <constraint firstItem="az9-0Q-Ae1" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="40" id="lCM-iG-ycP"/>
                 <constraint firstAttribute="trailing" secondItem="az9-0Q-Ae1" secondAttribute="trailing" id="oJZ-Il-a8S"/>
+                <constraint firstItem="rvG-XH-0jj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="peE-NR-RhP"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="Wfj-xE-tuf"/>
+                    <exclude reference="BHj-W3-wlG"/>
+                    <exclude reference="K7n-of-sVw"/>
                 </mask>
             </variation>
             <connections>

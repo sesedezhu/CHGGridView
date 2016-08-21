@@ -14,14 +14,6 @@
 @synthesize cells = _cells;
 @synthesize gridViewDatasource = _gridViewDatasource;
 @synthesize gridViewDelegate = _gridViewDelegate;
-@synthesize layoutEnable = _layoutEnable;
-
-//#ifdef _FOR_DEBUG_
-//-(BOOL) respondsToSelector:(SEL)aSelector {
-//    printf("SELECTOR: %s\n", [NSStringFromSelector(aSelector) UTF8String]);
-//    return [super respondsToSelector:aSelector];
-//}
-//#endif
 
 - (instancetype)init
 {
@@ -30,9 +22,46 @@
         self.pagingEnabled = YES;
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
-        _layoutEnable = YES;
+        self.queue = [[NSMutableDictionary alloc] init];
     }
     return self;
+}
+
+-(void)didMoveToWindow{
+    [super didMoveToWindow];
+    self.row = [_gridViewDatasource numberOfRowInCHGGridView:self];
+    self.column = [_gridViewDatasource numberOfcolumnInRow:self];
+    self.cellHeight = [_gridViewDatasource gridViewHeightForCell:self];
+    self.cellWidth = self.frame.size.width / _column;
+    [self createView];
+}
+
+
+///注册cell
+-(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier{
+    CHGGridViewCell * cell = [CHGGridViewCell initWithNibName:nib];
+    NSMutableArray * identifierArray = [_queue objectForKey:identifier];
+    if (identifierArray == nil) {
+        identifierArray = [[NSMutableArray alloc] init];
+    }
+    [identifierArray addObject:cell];
+    [_queue setObject:identifierArray forKey:identifier];
+}
+
+///通过标识符获取cell
+-(CHGGridViewCell*)dequeueReusableCellWithIdentifier:(NSString*)identifier withPosition:(NSInteger)position{
+    NSMutableArray * identifierArray = [_queue objectForKey:identifier];
+    CHGGridViewCell * cell;
+    NSInteger numberOfPageCount = _row * _column;///一页有几个cell
+    NSInteger m = position % numberOfPageCount;
+    if (m >= identifierArray.count) {///这种情况应该实例化一个cell
+        cell = [CHGGridViewCell initWithNibName:identifier];
+        [identifierArray addObject:cell];
+        [_queue setObject:identifierArray forKey:identifier];
+    } else {
+        cell = [identifierArray objectAtIndex:m];
+    }
+    return cell;
 }
 
 -(void)reloadData{
@@ -42,38 +71,20 @@
     [self createView];
 }
 
--(void)layoutSubviews
-{
-    [super layoutSubviews];
-    if (_gridViewDatasource == nil) {
-        return;
-    }
-    if (!_layoutEnable) {
-        return;
-    }
-    _layoutEnable = NO;
-    [self createView];
-}
-
-
 -(void)createView{
-    NSInteger row = [_gridViewDatasource numberOfRowInCHGGridView:self];
-    NSInteger column = [_gridViewDatasource numberOfcolumnInRow:self];
-    CGFloat cellHeight = [_gridViewDatasource gridViewHeightForCell:self];
-    CGFloat cellWidth = self.frame.size.width / column;
     NSInteger curryPage = -1;
     NSInteger curryClumns = -1;
     for (int i=0; i<_items.count; i++) {
-        if (i % column == 0) {
+        if (i % _column == 0) {
             curryClumns += 1;
         }
-        if (i % (row * column) == 0) {
+        if (i % (_row * _column) == 0) {
             curryPage += 1;
         }
-        CGRect frame_ = CGRectMake((i % column) * cellWidth + curryPage * self.frame.size.width,
-                                   (curryClumns % row == 0 ? 0 : curryClumns % row) * cellHeight,
-                                   cellWidth,
-                                   cellHeight);
+        CGRect frame_ = CGRectMake((i % _column) * _cellWidth + curryPage * self.frame.size.width,
+                                   (curryClumns % _row == 0 ? 0 : curryClumns % _row) * _cellHeight,
+                                   _cellWidth,
+                                   _cellHeight);
         
         CHGGridViewCell * cell = [_gridViewDatasource gridView:self itemAtIndex:i withData:[_items objectAtIndex:i]];
         cell.frame = frame_;
@@ -85,12 +96,11 @@
         [_cells addObject:cell == nil ? [[NSNull alloc] init] : cell];
         [self addSubview:cell];
     }
-    self.contentSize = CGSizeMake(self.frame.size.width * (curryPage + 1), 20);
+    self.contentSize = CGSizeMake(self.frame.size.width * (curryPage + 1), 1);
 }
 
 
 -(void)cellClick:(id)sender {
-//    NSLog(@"%li 被点击",((CHGGridViewCell*)sender).tag);
     NSInteger tag = ((CHGGridViewCell*)sender).tag;
     NSDictionary * item = [_items objectAtIndex:tag];
     [_gridViewDelegate menu:self didSelectInPosition:tag withData:item];

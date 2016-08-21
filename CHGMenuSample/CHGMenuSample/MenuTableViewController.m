@@ -57,7 +57,7 @@
 }
 //返回cell的高度   宽度自动计算，计算方式：屏幕宽度/列数
 -(CGFloat)gridViewHeightForCell:(id)gridView{
-    return 80;
+    return 90;
 }
 
 ///menuItem 点击处理
@@ -80,12 +80,12 @@
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 190;
+    return 210;
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        self.menu = [[CHGMenu alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 190)];
+        self.menu = [[CHGMenu alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 210)];
         _menu.items = [self simulationData];
         _menu.showPageControl = YES;//是否显示pageControll
         _menu.gridViewDatasource = self;
