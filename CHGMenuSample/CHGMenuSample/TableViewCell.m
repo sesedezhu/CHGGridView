@@ -8,7 +8,6 @@
 
 #import "TableViewCell.h"
 #import "SecondViewController.h"
-#import "MJRefresh.h"
 
 @implementation TableViewCell
 
@@ -16,30 +15,17 @@
     [super gridViewCellDidLoad];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    _curryPage = 1;
-    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        // 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）
-        _curryPage = 1;
-        [_tableView.mj_header endRefreshing];
-        [_tableView reloadData];
-    }];
-    
-    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        _curryPage += 1;
-        [_tableView.mj_footer endRefreshing];
-        [_tableView reloadData];
-    }];
+//    _curryPage = 1;
 }
 
 -(void)gridViewCellWillAppear{
     [super gridViewCellWillAppear];
     NSLog(@"页面从新出现");
-    [_tableView.mj_header beginRefreshing];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20*_curryPage;
+    return 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
