@@ -95,7 +95,6 @@
             UIView * rightView = [_tabPageDataSource viewForRightViewInTabPage:self];
             [_rightView addSubview:rightView];
         }
-        
         _tabView.frame = CGRectMake(_useVCMode ? 60 : 0, 0, self.frame.size.width - (_useVCMode ? 120 : 0), sliderHeight);
         _gridView.frame = CGRectMake(0, sliderHeight, self.frame.size.width, self.frame.size.height - sliderHeight);
     } else {

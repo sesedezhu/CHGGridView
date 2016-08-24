@@ -61,16 +61,17 @@
 
 ///返回页面
 -(CHGGridViewCell*)tabPage:(id)tabPage itemAtIndex:(NSInteger)page suggestedHeight:(CGFloat)height suggestedWidth:(CGFloat)width withData:(NSDictionary*)data{
-    if (page == 0) {
+//    if (page == 0) {
         TableViewCell * cell = [TableViewCell initWithNibName:@"TableViewCell"];
         cell.target = self;
+        cell.orderType = page;
         return cell;
-    } else {
-        NavCell * cell = [NavCell initWithNibName:@"NavCell"];
-        cell.image.image = [UIImage imageNamed:[data objectForKey:@"icon"]];///因为page == 0 这里page是从1开始
-        cell.btn.hidden = YES;
-        return cell;
-    }
+//    } else {
+//        NavCell * cell = [NavCell initWithNibName:@"NavCell"];
+//        cell.image.image = [UIImage imageNamed:[data objectForKey:@"icon"]];///因为page == 0 这里page是从1开始
+//        cell.btn.hidden = YES;
+//        return cell;
+//    }
     
 }
 

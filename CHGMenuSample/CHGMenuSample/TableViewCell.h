@@ -11,6 +11,8 @@
 @interface TableViewCell : CHGGridViewCell<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong) IBOutlet UITableView * tableView;
+@property(nonatomic,assign) NSInteger curryPage;
+@property(nonatomic,assign) NSInteger orderType;//订单类型
 
 
 @end

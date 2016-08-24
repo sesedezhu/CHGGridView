@@ -54,8 +54,8 @@
 }
 
 
--(void)layoutSubviews{
-    [super layoutSubviews];
+-(void)didMoveToWindow{
+    [super didMoveToWindow];
     NSInteger column = [_gridViewDatasource numberOfcolumnInRow:self];
     NSInteger row = [_gridViewDatasource numberOfRowInCHGGridView:self];
     
@@ -65,8 +65,6 @@
     } else {
         page = ceil(_items.count / (column * row));
     }
-    
-    
     self.pageControl.frame = CGRectMake(0, self.frame.size.height-30, self.frame.size.width, 30);
     self.gridView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - (_showPageControl ? 30 : 0));
     _gridView.tag = self.tag;
