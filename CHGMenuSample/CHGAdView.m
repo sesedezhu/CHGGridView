@@ -7,6 +7,7 @@
 //
 
 #import "CHGAdView.h"
+#import "AdCell.h"
 
 @implementation CHGAdView
 
@@ -22,6 +23,28 @@
 
 -(void)willMoveToSuperview:(UIView *)newSuperview{
     [super willMoveToSuperview:newSuperview];
+    
+//    if (_isCycleShow) {
+//        NSLog(@"广告数量：%li",_data.count);
+//        NSMutableArray * dataTemp = [[NSMutableArray alloc] initWithArray:_data];
+//        [dataTemp insertObject:[_data objectAtIndex:_data.count - 1] atIndex:0];
+//        [dataTemp addObject:[_data objectAtIndex:0]];
+//        self.data = dataTemp;
+//        _chgMenu.items = _data;
+//        NSLog(@"%li",_data.count - 2);
+//        _pageControl.numberOfPages = _data.count - 2;
+//    } else {
+//        _chgMenu.items = _data;
+//        _pageControl.numberOfPages = _data.count;
+//    }
+//    _pageControl.hidden = !_isShowPageControll;
+//    if (_isTimerShow && _isCycleShow) {
+//        [self startTimerShow];
+//    }
+}
+
+-(void)willMoveToWindow:(UIWindow *)newWindow{
+    [super willMoveToWindow:newWindow];
     if (_isCycleShow) {
         NSLog(@"广告数量：%li",_data.count);
         NSMutableArray * dataTemp = [[NSMutableArray alloc] initWithArray:_data];
@@ -29,6 +52,7 @@
         [dataTemp addObject:[_data objectAtIndex:0]];
         self.data = dataTemp;
         _chgMenu.items = _data;
+        NSLog(@"%li",_data.count - 2);
         _pageControl.numberOfPages = _data.count - 2;
     } else {
         _chgMenu.items = _data;
@@ -52,9 +76,7 @@
                                     repeats:YES];
 }
 
--(void)didAddSubview:(UIView *)subview{
-    [super didAddSubview:subview];
-}
+
 
 - (void)adveritisementScroll
 {
@@ -103,9 +125,9 @@
 }
 
 
--(void)setData:(NSArray *)data{
-    _data = data;
-}
+//-(void)setData:(NSArray *)data{
+//    _data = data;
+//}
 
 //返回gridView中的行数
 -(NSInteger)numberOfRowInCHGGridView:(id) gridView{
@@ -119,6 +141,9 @@
 //返回item的view
 -(CHGGridViewCell*)gridView:(id)gridView itemAtIndex:(NSInteger) position withData:(NSDictionary*)data{
     return [_dataSource adView:self itemAtIndex:position withData:data];
+//    AdCell * cell = [AdCell initWithNibName:@"AdCell"];
+//    cell.image.image = [UIImage imageNamed:@"nav1"];
+//    return cell;
 }
 
 //返回cell的高度   宽度自动计算，计算方式：屏幕宽度/列数

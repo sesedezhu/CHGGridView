@@ -8,9 +8,12 @@
 
 #import "CHGGridViewCell.h"
 
+typedef void(^TableViewClick)(id tableView,NSIndexPath * indexPath);
+
 @interface TableViewCell : CHGGridViewCell<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong) IBOutlet UITableView * tableView;
-
+@property(nonatomic,assign) NSInteger orderType;//订单类型
+@property(nonatomic,strong) TableViewClick tableViewClick;
 
 @end

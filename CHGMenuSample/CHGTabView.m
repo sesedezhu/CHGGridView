@@ -21,31 +21,40 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        NSLog(@"CHGTabView   initWithFrame");
         _currSelected = 0;
         self.slideIndicator = [[UIView alloc] init];
-//        _slideIndicator.backgroundColor = [UIColor redColor];
-//        [self addSubview:_slideIndicator];
-//        _slideIndicatorColor = _selectedColor;
         self.backgroundColor = [UIColor whiteColor];
         self.btns = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
--(void)layoutSubviews{
-    [super layoutSubviews];
-    if (_btns.count > 0) {
+-(instancetype)init{
+    self = [super init];
+    if (self) {
+        NSLog(@"CHGTabView   init");
+    }
+    return self;
+}
+
+
+//-(void)creatView{
+//    
+//}
+
+-(void)willMoveToWindow:(UIWindow *)newWindow{
+    [super willMoveToWindow:newWindow];
+    if (_btns.count != 0) {
         return;
     }
-    _slideIndicator.backgroundColor = _slideIndicatorColor == nil ? _selectedColor : _slideIndicatorColor;//[UIColor redColor];
-//    _slideIndicator.alpha = 0.1;
+    _slideIndicator.backgroundColor = _slideIndicatorColor == nil ? _selectedColor : _slideIndicatorColor;
     NSInteger counts = [_tabItemDataSource numberOfinTabView];
     CGFloat itemWidth = self.frame.size.width / counts;
     CGFloat itemHeight = self.frame.size.height;
     CGFloat indicatorHeight = [_tabItemDataSource tabView:self heightForIndicatorInPosition:0 suggestedHeight:itemHeight suggestedWidth:itemWidth];//指示器高度
     for (int i=0; i<counts; i++) {
         ItemBtnCell * cell = [_tabItemDataSource tabView:self itemAtIndex:i suggestedHeight:itemWidth suggestedWidth:itemHeight];
-//        cell.frame = CGRectMake(itemWidth * i, 0, itemWidth, itemHeight - indicatorHeight);
         cell.frame = CGRectMake(itemWidth * i, 0, itemWidth, itemHeight);
         cell.tag = i;
         [cell addTarget:self action:@selector(itemClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -53,14 +62,11 @@
         [self addSubview:cell];
         ((ItemBtnCell*)cell).title.textColor = i == 0 ? _selectedColor : _normalColor;
     }
-    
-//    _slideIndicator.frame = CGRectMake(0, self.frame.size.height - indicatorHeight, itemWidth, indicatorHeight);
     if (_itemBtnCellLocation == CHGTabViewItemBtnCellLocationTop) {///滑块在顶部
         _slideIndicator.frame = CGRectMake(0, 0, itemWidth, indicatorHeight);
     } else {
         _slideIndicator.frame = CGRectMake(0, itemHeight - indicatorHeight, itemWidth, indicatorHeight);
     }
-    
     [self addSubview:_slideIndicator];
 }
 

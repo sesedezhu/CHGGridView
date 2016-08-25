@@ -95,7 +95,6 @@
             UIView * rightView = [_tabPageDataSource viewForRightViewInTabPage:self];
             [_rightView addSubview:rightView];
         }
-        
         _tabView.frame = CGRectMake(_useVCMode ? 60 : 0, 0, self.frame.size.width - (_useVCMode ? 120 : 0), sliderHeight);
         _gridView.frame = CGRectMake(0, sliderHeight, self.frame.size.width, self.frame.size.height - sliderHeight);
     } else {
@@ -190,7 +189,7 @@
     lastX = 0;
     [_tabPageDataSource tabView:self onChangedPage:_tabView.currSelected];
     ///以下新增生命周期
-    NSLog(@"%@",_gridView.cells[_tabView.currSelected]);
+//    NSLog(@"%@",_gridView.cells[_tabView.currSelected]);
     if (_gridView.cells[_tabView.currSelected] != [[NSNull alloc] init]) {
         [_gridView.cells[_tabView.currSelected] gridViewCellWillAppear];
     }

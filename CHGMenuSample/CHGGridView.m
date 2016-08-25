@@ -27,14 +27,37 @@
     return self;
 }
 
+-(void)willMoveToWindow:(UIWindow *)newWindow{
+    [super willMoveToWindow:newWindow];
+    NSLog(@"gv   willMoveToWindow");
+    if (_cells == nil) {
+        self.row = [_gridViewDatasource numberOfRowInCHGGridView:self];
+        self.column = [_gridViewDatasource numberOfcolumnInRow:self];
+        self.cellHeight = [_gridViewDatasource gridViewHeightForCell:self];
+        self.cellWidth = self.frame.size.width / _column;
+        [self createView];
+    }
+    
+}
+
+-(void)willMoveToSuperview:(UIView *)newSuperview{
+    [super willMoveToSuperview:newSuperview];
+    NSLog(@"gv   willMoveToSuperview");
+    
+}
+
 -(void)didMoveToWindow{
     [super didMoveToWindow];
-    self.row = [_gridViewDatasource numberOfRowInCHGGridView:self];
-    self.column = [_gridViewDatasource numberOfcolumnInRow:self];
-    self.cellHeight = [_gridViewDatasource gridViewHeightForCell:self];
-    self.cellWidth = self.frame.size.width / _column;
-    [self createView];
+    NSLog(@"gv   didMoveToWindow");
 }
+
+-(void)didMoveToSuperview{
+    [super didMoveToSuperview];
+    NSLog(@"gv   didMoveToSuperview");
+    
+    
+}
+
 
 
 ///注册cell
