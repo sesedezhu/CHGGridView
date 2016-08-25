@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHGGridViewCell : UIControl
+@interface CHGGridViewCell : UIControl{
+    
+}
 
+//@property(nonatomic,weak) CHGGridViewCell * cell;
 @property(nonatomic,weak) UIViewController * target;
 
-///页面加载完毕
--(void)gridViewCellDidLoad;
-//页面将显示
--(void)gridViewCellWillAppear;
-///页面将消失
--(void)gridViewCellDidDisappear;
-
 +(id)initWithNibName:(NSString*) nibName;
+///页面将显示
+-(void)gridViewCellWillAppear;
+
+///创建的时候
+-(void)onCreate;
 
 @end

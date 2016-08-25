@@ -54,8 +54,8 @@
 }
 
 
--(void)didMoveToWindow{
-    [super didMoveToWindow];
+-(void)willMoveToWindow:(UIWindow *)newWindow{
+    [super willMoveToWindow:newWindow];
     NSInteger column = [_gridViewDatasource numberOfcolumnInRow:self];
     NSInteger row = [_gridViewDatasource numberOfRowInCHGGridView:self];
     

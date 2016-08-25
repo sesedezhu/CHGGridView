@@ -11,18 +11,28 @@
 
 @implementation TableViewCell
 
--(void)gridViewCellDidLoad{
-    [super gridViewCellDidLoad];
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-//    _curryPage = 1;
-}
+//-(void)awakeFromNib{
+//    [super awakeFromNib];
+//    NSLog(@"===");
+//    _tableView.dataSource = self;
+//    _tableView.delegate = self;
+//}
+
+//-(void)gridViewCellDidLoad{
+//    [super gridViewCellDidLoad];
+//    
+//    NSLog(@"gridViewCellDidLoad:%li",self.orderType);
+//}
 
 -(void)gridViewCellWillAppear{
     [super gridViewCellWillAppear];
-    NSLog(@"页面从新出现");
+    NSLog(@"😄");
 }
 
+-(void)onCreate{
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 20;
@@ -37,6 +47,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SecondViewController * secondVC = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
     secondVC.title = [NSString stringWithFormat:@"点单类型：%li  数据%li",_orderType,indexPath.row];
+//    _tableViewClick(tableView,indexPath);
     [self.target.navigationController pushViewController:secondVC animated:YES];
 }
 

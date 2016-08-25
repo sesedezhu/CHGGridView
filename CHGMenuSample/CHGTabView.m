@@ -21,6 +21,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        NSLog(@"CHGTabView   initWithFrame");
         _currSelected = 0;
         self.slideIndicator = [[UIView alloc] init];
         self.backgroundColor = [UIColor whiteColor];
@@ -29,8 +30,24 @@
     return self;
 }
 
+-(instancetype)init{
+    self = [super init];
+    if (self) {
+        NSLog(@"CHGTabView   init");
+    }
+    return self;
+}
+
+
+//-(void)creatView{
+//    
+//}
+
 -(void)willMoveToWindow:(UIWindow *)newWindow{
     [super willMoveToWindow:newWindow];
+    if (_btns.count != 0) {
+        return;
+    }
     _slideIndicator.backgroundColor = _slideIndicatorColor == nil ? _selectedColor : _slideIndicatorColor;
     NSInteger counts = [_tabItemDataSource numberOfinTabView];
     CGFloat itemWidth = self.frame.size.width / counts;

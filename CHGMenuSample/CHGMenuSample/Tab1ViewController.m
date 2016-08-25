@@ -7,10 +7,10 @@
 //
 
 #import "Tab1ViewController.h"
-//#import "MenuItemCell.h"
 #import "Tab1BtnCell.h"
 #import "TableViewCell.h"
 #import "NavCell.h"
+#import "SecondViewController.h"
 
 #define imgData @[@"nav1",@"nav2",@"nav3",@"nav1"]
 
@@ -22,8 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
     self.tabPage = [[CHGTabPage alloc] initWithFrame:CGRectMake(0, _userVCMode ? 20 : 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - (_userVCMode ? 20 : 64))];
     _tabPage.tabPageDataSource = self;
     _tabPage.gridViewDelegate = self;
@@ -43,7 +41,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 ///模拟数据
@@ -61,24 +58,15 @@
 
 ///返回页面
 -(CHGGridViewCell*)tabPage:(id)tabPage itemAtIndex:(NSInteger)page suggestedHeight:(CGFloat)height suggestedWidth:(CGFloat)width withData:(NSDictionary*)data{
-//    if (page == 0) {
-        TableViewCell * cell = [TableViewCell initWithNibName:@"TableViewCell"];
-        cell.target = self;
-        cell.orderType = page;
-        return cell;
-//    } else {
-//        NavCell * cell = [NavCell initWithNibName:@"NavCell"];
-//        cell.image.image = [UIImage imageNamed:[data objectForKey:@"icon"]];///因为page == 0 这里page是从1开始
-//        cell.btn.hidden = YES;
-//        return cell;
-//    }
-    
+    TableViewCell * cell = [TableViewCell initWithNibName:@"TableViewCell"];
+    cell.target = self;
+    cell.orderType = page;
+    return cell;
 }
 
 //获取自定义的btn
 -(ItemBtnCell*)tabView:(id)tabView itemAtIndex:(NSInteger)position  suggestedHeight:(CGFloat)height suggestedWidth:(CGFloat)width withData:(id)data{
     Tab1BtnCell * menuItemCell = [Tab1BtnCell initWithNibName:@"Tab1BtnCell"];
-//    menuItemCell.image.image = [UIImage imageNamed:[data objectForKey:@"icon"]];
     menuItemCell.title.text = [data objectForKey:@"title"];
     return menuItemCell;
 }

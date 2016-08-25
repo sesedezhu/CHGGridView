@@ -189,7 +189,7 @@
     lastX = 0;
     [_tabPageDataSource tabView:self onChangedPage:_tabView.currSelected];
     ///以下新增生命周期
-    NSLog(@"%@",_gridView.cells[_tabView.currSelected]);
+//    NSLog(@"%@",_gridView.cells[_tabView.currSelected]);
     if (_gridView.cells[_tabView.currSelected] != [[NSNull alloc] init]) {
         [_gridView.cells[_tabView.currSelected] gridViewCellWillAppear];
     }
