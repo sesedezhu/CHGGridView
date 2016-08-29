@@ -8,8 +8,10 @@
 
 #import "MenuTableViewController.h"
 #import "MenuItemCell.h"
+//#import "MJRefresh.h"
+#import "Tab1ViewController.h"
 
-#define imgData @[@"nav1",@"nav2",@"nav3",@"nav1",@"nav2",@"nav3",@"nav1",@"nav2",@"nav3",@"nav1",@"nav2",@"nav3",@"nav1",@"nav2",@"nav3",@"nav1",@"nav2",@"nav3",@"nav1",@"nav2",@"nav3"]
+#define imgData @[@"nav1",@"nav2",@"nav3",@"nav1",@"nav2",@"nav3",@"nav1",@"nav2",@"nav3",@"nav1",@"nav2",@"nav3",@"nav1",@"nav2",@"nav3",@"nav1"]
 
 @interface MenuTableViewController ()
 
@@ -19,6 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        [self.tableView.mj_header endRefreshing];
+//        [self.tableView reloadData];
+//    }];
 }
 
 ///模拟数据
@@ -62,11 +68,14 @@
 
 ///menuItem 点击处理
 -(void)menu:(id)menu didSelectInPosition:(NSInteger)position withData:(NSDictionary*)data{
-    NSLog(@"当前点击：%li   数据：%@",position,data);
-    UIAlertController * ac = [UIAlertController alertControllerWithTitle:@"当前点击" message:[data objectForKey:@"title"] preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-    [ac addAction:cancelAction];
-    [self presentViewController:ac animated:YES completion:nil];
+//    NSLog(@"当前点击：%li   数据：%@",position,data);
+//    UIAlertController * ac = [UIAlertController alertControllerWithTitle:@"当前点击" message:[data objectForKey:@"title"] preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+//    [ac addAction:cancelAction];
+//    [self presentViewController:ac animated:YES completion:nil];
+    Tab1ViewController * scondVC = [[Tab1ViewController alloc] initWithNibName:@"Tab1ViewController" bundle:nil];
+    [self.navigationController pushViewController:scondVC animated:YES];
+    
 }
 
 #pragma mark - Table view data source

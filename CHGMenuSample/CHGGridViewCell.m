@@ -14,7 +14,7 @@
     NSArray * views = [[NSBundle mainBundle] loadNibNamed:nibName owner:nil options:nil];
     id view = [views objectAtIndex:0];
     CHGGridViewCell * cell = (CHGGridViewCell*)view;
-    [cell onCreate];
+    [cell gridViewCellDidLoad];
     return view;
 }
 
@@ -56,7 +56,7 @@
 //}
 //
 
--(void)onCreate{
+-(void)gridViewCellDidLoad{
     
 }
 
@@ -64,6 +64,12 @@
 -(void)gridViewCellWillAppear{
     
 }
+
+///页面消失
+-(void)gridViewCellDidDisappear{
+    
+}
+
 //
 /////页面将消失
 //-(void)gridViewCellDidDisappear{

@@ -29,8 +29,7 @@
 
 -(void)willMoveToWindow:(UIWindow *)newWindow{
     [super willMoveToWindow:newWindow];
-    NSLog(@"gv   willMoveToWindow");
-    if (_cells == nil) {
+    if (_cells == nil || _cells.count == 0) {
         self.row = [_gridViewDatasource numberOfRowInCHGGridView:self];
         self.column = [_gridViewDatasource numberOfcolumnInRow:self];
         self.cellHeight = [_gridViewDatasource gridViewHeightForCell:self];
@@ -42,20 +41,16 @@
 
 -(void)willMoveToSuperview:(UIView *)newSuperview{
     [super willMoveToSuperview:newSuperview];
-    NSLog(@"gv   willMoveToSuperview");
+
     
 }
 
 -(void)didMoveToWindow{
     [super didMoveToWindow];
-    NSLog(@"gv   didMoveToWindow");
 }
 
 -(void)didMoveToSuperview{
     [super didMoveToSuperview];
-    NSLog(@"gv   didMoveToSuperview");
-    
-    
 }
 
 

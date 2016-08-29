@@ -11,28 +11,22 @@
 
 @implementation TableViewCell
 
-//-(void)awakeFromNib{
-//    [super awakeFromNib];
-//    NSLog(@"===");
-//    _tableView.dataSource = self;
-//    _tableView.delegate = self;
-//}
-
-//-(void)gridViewCellDidLoad{
-//    [super gridViewCellDidLoad];
-//    
-//    NSLog(@"gridViewCellDidLoad:%li",self.orderType);
-//}
-
 -(void)gridViewCellWillAppear{
     [super gridViewCellWillAppear];
     NSLog(@"😄");
+    
+//    [_tableView.mj_header beginRefreshing];
 }
 
--(void)onCreate{
+-(void)gridViewCellDidLoad{
     _tableView.dataSource = self;
     _tableView.delegate = self;
+//    _tableView.mj_header =  [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        [self.tableView.mj_header endRefreshing];
+//        [self.tableView reloadData];
+//    }];
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 20;

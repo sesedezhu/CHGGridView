@@ -20,6 +20,9 @@
 -(void)gridViewCellWillAppear;
 
 ///创建的时候
--(void)onCreate;
+-(void)gridViewCellDidLoad;
+
+///页面消失
+-(void)gridViewCellDidDisappear;
 
 @end
