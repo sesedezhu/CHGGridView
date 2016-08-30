@@ -26,7 +26,7 @@
     _tabPage.tabPageDataSource = self;
     _tabPage.gridViewDelegate = self;
     _tabPage.items = [self simulationData];
-    _tabPage.selectedColor = [UIColor redColor];
+    _tabPage.selectedColor = [UIColor greenColor];
     _tabPage.normalColor = [UIColor grayColor];
     _tabPage.tabViewLoca = locationTop;//在顶部显示按钮区域
     _tabPage.itemBtnCellLocation = CHGTabViewItemBtnCellLocationBottom;

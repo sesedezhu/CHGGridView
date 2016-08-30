@@ -16,12 +16,6 @@ typedef NS_ENUM(NSInteger,CHGTabViewLocation){
     locationBottom          //tab在底部
 };
 
-/////定义顶部按钮的滑动块的位置
-//typedef NS_ENUM(NSInteger,CHGTabViewItemBtnCellLocation){
-//    CHGTabViewItemBtnCellLocationTop,            //tab在顶部
-//    CHGTabViewItemBtnCellLocationBottom          //tab在底部
-//};
-
 @protocol CHGTabPageDataSource <NSObject>
 ///返回页面
 -(CHGGridViewCell*)tabPage:(id)tabPage itemAtIndex:(NSInteger)page suggestedHeight:(CGFloat)height suggestedWidth:(CGFloat)width withData:(NSDictionary*)data;
@@ -29,8 +23,6 @@ typedef NS_ENUM(NSInteger,CHGTabViewLocation){
 //获取自定义的btn
 -(ItemBtnCell*)tabView:(id)tabView itemAtIndex:(NSInteger)position  suggestedHeight:(CGFloat)height suggestedWidth:(CGFloat)width withData:(id)data;
 
-///item被点击
--(void)tabView:(id)tabView itemView:(id)itemView didSelectAtPosition:(NSInteger)position;
 
 /// 返回滑动区域的高度
 -(CGFloat)heightForSliderInTabPage:(id)tabPage;
@@ -45,6 +37,8 @@ typedef NS_ENUM(NSInteger,CHGTabViewLocation){
 -(UIView*)viewForRightViewInTabPage:(id)tabPage;
 ///页面选中时回调
 -(void)tabView:(id)tabView onChangedPage:(NSInteger)page;
+///item被点击
+-(void)tabView:(id)tabView itemView:(id)itemView didSelectAtPosition:(NSInteger)position;
 
 @end
 

@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger,CHGTabViewItemBtnCellLocation){
 //返回指示器的高度
 -(CGFloat)tabView:(id)tabView heightForIndicatorInPosition:(NSInteger)position suggestedHeight:(CGFloat)height suggestedWidth:(CGFloat)width;
 
+@optional
 ///item被点击
 -(void)tabView:(id)tabView itemView:(id)itemView didSelectAtPosition:(NSInteger)position;
 

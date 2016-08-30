@@ -74,7 +74,9 @@
 -(void)itemClick:(id)sender {
     NSInteger tag_ = ((CHGGridViewCell*)sender).tag;
     self.currSelected = tag_;
-    [_tabItemDataSource tabView:self itemView:sender didSelectAtPosition:tag_];
+    if ([_tabItemDataSource respondsToSelector:@selector(tabView:itemView:didSelectAtPosition:)]) {
+        [_tabItemDataSource tabView:self itemView:sender didSelectAtPosition:tag_];
+    }
 }
 
 -(void)setCurrSelected:(NSInteger)currSelected{

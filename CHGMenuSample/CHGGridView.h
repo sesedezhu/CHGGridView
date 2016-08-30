@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CHGGridViewCell.h"
 
+
 ///实现数据 功能
 @protocol CHGGridViewDatasource <NSObject>
 //返回gridView中的行数
@@ -16,16 +17,20 @@
 //返回gridView中的列数
 -(NSInteger)numberOfcolumnInRow:(id) gridView;
 //返回item的view
-//-(CHGGridViewCell*)gridView:(id)gridView itemAtIndex:(NSInteger) position;
 -(CHGGridViewCell*)gridView:(id)gridView itemAtIndex:(NSInteger) position withData:(NSDictionary*)data;
 //返回cell的高度   宽度自动计算，计算方式：屏幕宽度/列数
 -(CGFloat)gridViewHeightForCell:(id)gridView;
+
+@optional
+///创建完毕回调
+-(void)onCreateFinished;
 
 @end
 
 ///点击GridView回调
 @protocol CHGGridViewDelegate <NSObject>
 
+@optional
 -(void)menu:(id)menu didSelectInPosition:(NSInteger)position withData:(NSDictionary*)data;
 
 @end

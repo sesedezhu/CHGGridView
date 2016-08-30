@@ -39,21 +39,6 @@
     
 }
 
--(void)willMoveToSuperview:(UIView *)newSuperview{
-    [super willMoveToSuperview:newSuperview];
-
-    
-}
-
--(void)didMoveToWindow{
-    [super didMoveToWindow];
-}
-
--(void)didMoveToSuperview{
-    [super didMoveToSuperview];
-}
-
-
 
 ///注册cell
 -(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier{
@@ -115,13 +100,18 @@
         [self addSubview:cell];
     }
     self.contentSize = CGSizeMake(self.frame.size.width * (curryPage + 1), 1);
+    if ([_gridViewDatasource respondsToSelector:@selector(onCreateFinished)]) {
+        [_gridViewDatasource onCreateFinished];
+    }
 }
 
 
 -(void)cellClick:(id)sender {
     NSInteger tag = ((CHGGridViewCell*)sender).tag;
     NSDictionary * item = [_items objectAtIndex:tag];
-    [_gridViewDelegate menu:self didSelectInPosition:tag withData:item];
+    if ([_gridViewDatasource respondsToSelector:@selector(menu:didSelectInPosition:withData:)]) {
+        [_gridViewDelegate menu:self didSelectInPosition:tag withData:item];
+    }
 }
 
 @end

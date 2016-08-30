@@ -18,44 +18,6 @@
     return view;
 }
 
-/////将要添加到父试图中
-//-(void)willMoveToSuperview:(UIView *)newSuperview{
-//    [super willMoveToSuperview:newSuperview];
-////    [self gridViewCellWillAppear];
-//    [self gridViewCellDidLoad];
-//}
-
-//-(void)willMoveToWindow:(UIWindow *)newWindow{
-//    [super willMoveToWindow:newWindow];
-//    [self gridViewCellDidLoad];
-//    
-////    NSLog(@"willMoveToWindow   inGRidViewCell");
-//    
-//}
-//
-//
-//-(void)didAddSubview:(UIView *)subview{
-//    [super didAddSubview:subview];
-//    NSLog(@"didAddSubview");
-//}
-//
-////完成添加view到父试图中
-//-(void)didMoveToSuperview{
-//    [super didMoveToSuperview];
-//    
-//}
-//
-//-(void)removeFromSuperview{
-//    [super removeFromSuperview];
-//    [self gridViewCellDidDisappear];
-//}
-//
-/////页面加载完毕
-//-(void)gridViewCellDidLoad{
-//    
-//}
-//
-
 -(void)gridViewCellDidLoad{
     
 }
@@ -69,11 +31,5 @@
 -(void)gridViewCellDidDisappear{
     
 }
-
-//
-/////页面将消失
-//-(void)gridViewCellDidDisappear{
-//    
-//}
 
 @end
