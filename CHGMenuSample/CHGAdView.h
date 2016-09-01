@@ -19,7 +19,9 @@
 
 @end
 
-@interface CHGAdView : UIView<CHGGridViewDatasource,CHGGridViewDelegate,UIScrollViewDelegate>
+@interface CHGAdView : UIView<CHGGridViewDatasource,CHGGridViewDelegate,UIScrollViewDelegate>{
+    BOOL refresh;
+}
 
 @property(nonatomic,strong) CHGMenu * chgMenu;
 @property(nonatomic,strong) UIPageControl * pageControl;

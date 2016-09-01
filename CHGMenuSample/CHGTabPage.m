@@ -47,11 +47,13 @@
 }
 
 -(void)reloadData{
+    [_gridView reloadData];
     NSArray * views = [self subviews];
     for (UIView * view in views) {
         [view removeFromSuperview];
     }
     [self createView];
+    
 }
 
 -(void)createView{

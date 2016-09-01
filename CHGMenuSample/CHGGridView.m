@@ -39,7 +39,6 @@
     
 }
 
-
 ///注册cell
 -(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier{
     CHGGridViewCell * cell = [CHGGridViewCell initWithNibName:nib];
@@ -71,6 +70,7 @@
     for (UIView * view in [self subviews]) {
         [view removeFromSuperview];
     }
+    _cells = nil;
     [self createView];
 }
 

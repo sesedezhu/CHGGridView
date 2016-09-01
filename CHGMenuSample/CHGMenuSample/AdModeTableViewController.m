@@ -8,6 +8,7 @@
 
 #import "AdModeTableViewController.h"
 #import "AdCell.h"
+#import "Tab1ViewController.h"
 
 @interface AdModeTableViewController ()
 
@@ -33,12 +34,16 @@
 
 ///CHGGridViewCell被点击时候回调
 -(void)adView:(id)adView didSelectInPosition:(NSInteger)position withData:(NSDictionary*)data{
-    NSString * message = [NSString stringWithFormat:@"当前选择的页面是:%li 当前页面的数据是：%@",position,data];
-    UIAlertController * ac = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-    [ac addAction:cancelAction];
-    [self presentViewController:ac animated:YES completion:nil];
+//    NSString * message = [NSString stringWithFormat:@"当前选择的页面是:%li 当前页面的数据是：%@",position,data];
+//    UIAlertController * ac = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+//    [ac addAction:cancelAction];
+//    [self presentViewController:ac animated:YES completion:nil];
+    Tab1ViewController * a = [[Tab1ViewController alloc] initWithNibName:@"Tab1ViewController" bundle:nil];
+    [self.navigationController pushViewController:a animated:YES];
 }
+
+
 
 #pragma mark - Table view data source
 
@@ -56,6 +61,9 @@
 
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 0) {
+        if (_adView) {
+            return _adView;
+        }
         self.adView = [[CHGAdView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
         _adView.data = [self simulationData];
         _adView.isCycleShow = YES;//是否循环显示

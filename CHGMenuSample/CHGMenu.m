@@ -70,7 +70,7 @@
     _gridView.tag = self.tag;
     
     _pageControl.numberOfPages = page;
-    _pageControl.currentPage = 0;
+    _pageControl.currentPage = currPage;
     _pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
     _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
 }
@@ -111,6 +111,7 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat page = scrollView.contentOffset.x / self.frame.size.width;
     _pageControl.currentPage = lroundf(page);
+    currPage = _pageControl.currentPage;
 }
 
 

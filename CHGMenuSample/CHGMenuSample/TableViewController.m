@@ -12,6 +12,7 @@
 #import "MenuTableViewController.h"
 #import "Tab1ViewController.h"
 #import "MemoryTestViewController.h"
+#import "Tab2TestViewController.h"
 
 #define funcs @[@"应用启动导航",@"广告轮播模式",@"菜单模式",@"tab1",@"tab2",@"内存优化"]
 
@@ -77,9 +78,11 @@
         tab1VC.userVCMode = YES;
         [self.navigationController pushViewController:tab1VC animated:YES];
     } else if(indexPath.row == 5){
-        MemoryTestViewController * memoryTestVC = [[MemoryTestViewController alloc] initWithNibName:@"MemoryTestViewController" bundle:nil];
-        memoryTestVC.title = funcs[indexPath.row];
-        [self.navigationController pushViewController:memoryTestVC animated:YES];
+//        MemoryTestViewController * memoryTestVC = [[MemoryTestViewController alloc] initWithNibName:@"MemoryTestViewController" bundle:nil];
+//        memoryTestVC.title = funcs[indexPath.row];
+//        [self.navigationController pushViewController:memoryTestVC animated:YES];
+        Tab2TestViewController * tab2TestVC = [[Tab2TestViewController alloc] init];
+        [self.navigationController pushViewController:tab2TestVC animated:YES];
     }
     
 }

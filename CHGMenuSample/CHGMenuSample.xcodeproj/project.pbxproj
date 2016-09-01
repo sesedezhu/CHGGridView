@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E66C8DB1D768ACD00A88FF3 /* Tab2TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E66C8D91D768ACD00A88FF3 /* Tab2TestViewController.m */; };
+		0E66C8DC1D768ACD00A88FF3 /* Tab2TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E66C8DA1D768ACD00A88FF3 /* Tab2TestViewController.xib */; };
+		0E66C8E11D76A45200A88FF3 /* Tab11Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E66C8E01D76A45200A88FF3 /* Tab11Cell.m */; };
+		0E66C8E31D76A65400A88FF3 /* Tab11Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E66C8E21D76A65400A88FF3 /* Tab11Cell.xib */; };
 		5F0B254D1D6973FE0005D4A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B254C1D6973FE0005D4A6 /* main.m */; };
 		5F0B25501D6973FE0005D4A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B254F1D6973FE0005D4A6 /* AppDelegate.m */; };
 		5F0B25591D6973FE0005D4A6 /* CHGMenuSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25571D6973FE0005D4A6 /* CHGMenuSample.xcdatamodeld */; };
@@ -66,6 +70,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E66C8D81D768ACD00A88FF3 /* Tab2TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tab2TestViewController.h; sourceTree = "<group>"; };
+		0E66C8D91D768ACD00A88FF3 /* Tab2TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tab2TestViewController.m; sourceTree = "<group>"; };
+		0E66C8DA1D768ACD00A88FF3 /* Tab2TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tab2TestViewController.xib; sourceTree = "<group>"; };
+		0E66C8DF1D76A45200A88FF3 /* Tab11Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tab11Cell.h; sourceTree = "<group>"; };
+		0E66C8E01D76A45200A88FF3 /* Tab11Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tab11Cell.m; sourceTree = "<group>"; };
+		0E66C8E21D76A65400A88FF3 /* Tab11Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tab11Cell.xib; sourceTree = "<group>"; };
 		5F0B25481D6973FE0005D4A6 /* CHGMenuSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHGMenuSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0B254C1D6973FE0005D4A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5F0B254E1D6973FE0005D4A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -158,6 +168,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E66C8D71D768AAF00A88FF3 /* 2tab */ = {
+			isa = PBXGroup;
+			children = (
+				0E66C8DE1D76A42E00A88FF3 /* tab2 */,
+				0E66C8DD1D76A41D00A88FF3 /* tab1 */,
+				0E66C8D81D768ACD00A88FF3 /* Tab2TestViewController.h */,
+				0E66C8D91D768ACD00A88FF3 /* Tab2TestViewController.m */,
+				0E66C8DA1D768ACD00A88FF3 /* Tab2TestViewController.xib */,
+			);
+			name = 2tab;
+			sourceTree = "<group>";
+		};
+		0E66C8DD1D76A41D00A88FF3 /* tab1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = tab1;
+			sourceTree = "<group>";
+		};
+		0E66C8DE1D76A42E00A88FF3 /* tab2 */ = {
+			isa = PBXGroup;
+			children = (
+				0E66C8DF1D76A45200A88FF3 /* Tab11Cell.h */,
+				0E66C8E01D76A45200A88FF3 /* Tab11Cell.m */,
+				0E66C8E21D76A65400A88FF3 /* Tab11Cell.xib */,
+			);
+			name = tab2;
+			sourceTree = "<group>";
+		};
 		5F0B253F1D6973FE0005D4A6 = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +221,7 @@
 		5F0B254A1D6973FE0005D4A6 /* CHGMenuSample */ = {
 			isa = PBXGroup;
 			children = (
+				0E66C8D71D768AAF00A88FF3 /* 2tab */,
 				5F0B25E81D69FCDF0005D4A6 /* memoryTest */,
 				5F0B25C91D6996230005D4A6 /* tab1 */,
 				5F0B25BA1D698CC40005D4A6 /* MenuMode */,
@@ -464,6 +504,7 @@
 				5F0B25BF1D698CE10005D4A6 /* MenuTableViewController.xib in Resources */,
 				5F0B25AE1D6983B60005D4A6 /* CHGNavigationViewController.xib in Resources */,
 				5F0B255E1D6973FE0005D4A6 /* LaunchScreen.storyboard in Resources */,
+				0E66C8DC1D768ACD00A88FF3 /* Tab2TestViewController.xib in Resources */,
 				5F0B25ED1D69FD0F0005D4A6 /* MemoryTestViewController.xib in Resources */,
 				5F0B25A91D6980870005D4A6 /* NavCell.xib in Resources */,
 				5F0B25DA1D69A2B90005D4A6 /* TableViewCell.xib in Resources */,
@@ -473,6 +514,7 @@
 				5F0B25E41D69BA690005D4A6 /* SecondViewController.xib in Resources */,
 				5F0B25B41D6986E20005D4A6 /* AdModeTableViewController.xib in Resources */,
 				5F0B25C81D698E550005D4A6 /* icon_.png in Resources */,
+				0E66C8E31D76A65400A88FF3 /* Tab11Cell.xib in Resources */,
 				5F0B255B1D6973FE0005D4A6 /* Assets.xcassets in Resources */,
 				5F0B25B91D6987EE0005D4A6 /* AdCell.xib in Resources */,
 				5F0B25981D69742A0005D4A6 /* ItemBtnCell.xib in Resources */,
@@ -512,8 +554,10 @@
 				5F0B25C21D698D000005D4A6 /* MenuItemCell.m in Sources */,
 				5F0B25961D69742A0005D4A6 /* CHGTabView.m in Sources */,
 				5F0B25AD1D6983B60005D4A6 /* CHGNavigationViewController.m in Sources */,
+				0E66C8DB1D768ACD00A88FF3 /* Tab2TestViewController.m in Sources */,
 				5F0B25941D69742A0005D4A6 /* CHGMenu.m in Sources */,
 				5F0B25B71D6987DC0005D4A6 /* AdCell.m in Sources */,
+				0E66C8E11D76A45200A88FF3 /* Tab11Cell.m in Sources */,
 				5F0B25D81D69A2AE0005D4A6 /* TableViewCell.m in Sources */,
 				5F0B25501D6973FE0005D4A6 /* AppDelegate.m in Sources */,
 				5F0B25B31D6986E20005D4A6 /* AdModeTableViewController.m in Sources */,

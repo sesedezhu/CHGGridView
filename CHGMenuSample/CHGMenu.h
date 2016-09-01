@@ -15,7 +15,9 @@
 //    PageControlShowInner//重合显示
 //};
 
-@interface CHGMenu : UIView<UIScrollViewDelegate>
+@interface CHGMenu : UIView<UIScrollViewDelegate> {
+    NSInteger currPage;
+}
 
 @property(nonatomic,strong) CHGGridView * gridView;
 @property(nonatomic,strong) UIPageControl * pageControl;
@@ -23,6 +25,7 @@
 @property(nonatomic,weak) id<CHGGridViewDelegate> gridViewDelegate;
 @property(nonatomic,strong) NSArray * items;
 @property(nonatomic,assign) BOOL showPageControl;
+
 //@property(nonatomic,assign) PageControlShow pageControlShow;
 
 -(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier;
