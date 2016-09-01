@@ -23,7 +23,7 @@
     self.tabPage = [[CHGTabPage alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-64)];
     _tabPage.tabPageDataSource = self;
     _tabPage.gridViewDelegate = self;
-    _tabPage.items = @[@"1",@"2"];
+    _tabPage.items = @[@"按钮1",@"按钮2",@"按钮3",@"按钮4"];
     _tabPage.tag = 1;
     _tabPage.selectedColor = [UIColor redColor];
     _tabPage.normalColor = [UIColor grayColor];

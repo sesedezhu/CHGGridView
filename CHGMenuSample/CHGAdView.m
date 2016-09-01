@@ -7,7 +7,6 @@
 //
 
 #import "CHGAdView.h"
-#import "AdCell.h"
 
 @implementation CHGAdView
 

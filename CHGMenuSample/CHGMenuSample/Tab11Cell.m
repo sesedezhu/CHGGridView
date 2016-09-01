@@ -25,7 +25,7 @@
     self.tabPage = [[CHGTabPage alloc] initWithFrame:CGRectMake(0, 0,[UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     _tabPage.tabPageDataSource = self;
     _tabPage.gridViewDelegate = self;
-    _tabPage.items = @[@"11",@"22"];
+    _tabPage.items = @[@"1",@"2",@"3"];
     _tabPage.tag = 1;
     _tabPage.selectedColor = [UIColor redColor];
     _tabPage.normalColor = [UIColor grayColor];
@@ -48,7 +48,7 @@
 //获取自定义的btn
 -(ItemBtnCell*)tabView:(id)tabView itemAtIndex:(NSInteger)position  suggestedHeight:(CGFloat)height suggestedWidth:(CGFloat)width withData:(id)data{
     Tab1BtnCell * menuItemCell = [Tab1BtnCell initWithNibName:@"Tab1BtnCell"];
-    menuItemCell.title.text = @"a";
+    menuItemCell.title.text = data;
     return menuItemCell;
 }
 
@@ -92,5 +92,6 @@
 -(void)menu:(id)menu didSelectInPosition:(NSInteger)position withData:(NSDictionary*)data{
     
 }
+
 
 @end
