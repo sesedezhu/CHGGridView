@@ -106,6 +106,10 @@
 }
 
 
+
+
+
+
 -(void)cellClick:(id)sender {
     NSInteger tag = ((CHGGridViewCell*)sender).tag;
     NSDictionary * item = [_items objectAtIndex:tag];

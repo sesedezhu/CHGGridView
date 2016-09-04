@@ -13,8 +13,9 @@
 #import "Tab1ViewController.h"
 #import "MemoryTestViewController.h"
 #import "Tab2TestViewController.h"
+#import "NewGridViewTestViewController.h"
 
-#define funcs @[@"应用启动导航",@"广告轮播模式",@"菜单模式",@"tab1",@"tab2",@"其它用法"]
+#define funcs @[@"应用启动导航",@"广告轮播模式",@"菜单模式",@"tab1",@"tab2",@"其它用法",@"重新构建"]
 
 @interface TableViewController ()
 
@@ -77,6 +78,9 @@
     } else if(indexPath.row == 5){
         Tab2TestViewController * tab2TestVC = [[Tab2TestViewController alloc] init];
         [self.navigationController pushViewController:tab2TestVC animated:YES];
+    } else if(indexPath.row == 6) {
+        NewGridViewTestViewController * newVC = [[NewGridViewTestViewController alloc] init];
+        [self.navigationController pushViewController:newVC animated:YES];
     }
 }
 
