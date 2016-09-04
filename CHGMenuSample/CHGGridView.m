@@ -29,8 +29,7 @@
 
 -(void)willMoveToWindow:(UIWindow *)newWindow{
     [super willMoveToWindow:newWindow];
-    NSLog(@"gv   willMoveToWindow");
-    if (_cells == nil) {
+    if (_cells == nil || _cells.count == 0) {
         self.row = [_gridViewDatasource numberOfRowInCHGGridView:self];
         self.column = [_gridViewDatasource numberOfcolumnInRow:self];
         self.cellHeight = [_gridViewDatasource gridViewHeightForCell:self];
@@ -39,26 +38,6 @@
     }
     
 }
-
--(void)willMoveToSuperview:(UIView *)newSuperview{
-    [super willMoveToSuperview:newSuperview];
-    NSLog(@"gv   willMoveToSuperview");
-    
-}
-
--(void)didMoveToWindow{
-    [super didMoveToWindow];
-    NSLog(@"gv   didMoveToWindow");
-}
-
--(void)didMoveToSuperview{
-    [super didMoveToSuperview];
-    NSLog(@"gv   didMoveToSuperview");
-    
-    
-}
-
-
 
 ///注册cell
 -(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier{
@@ -91,6 +70,7 @@
     for (UIView * view in [self subviews]) {
         [view removeFromSuperview];
     }
+    _cells = nil;
     [self createView];
 }
 
@@ -120,13 +100,18 @@
         [self addSubview:cell];
     }
     self.contentSize = CGSizeMake(self.frame.size.width * (curryPage + 1), 1);
+    if ([_gridViewDatasource respondsToSelector:@selector(onCreateFinished)]) {
+        [_gridViewDatasource onCreateFinished];
+    }
 }
 
 
 -(void)cellClick:(id)sender {
     NSInteger tag = ((CHGGridViewCell*)sender).tag;
     NSDictionary * item = [_items objectAtIndex:tag];
-    [_gridViewDelegate menu:self didSelectInPosition:tag withData:item];
+    if ([_gridViewDatasource respondsToSelector:@selector(menu:didSelectInPosition:withData:)]) {
+        [_gridViewDelegate menu:self didSelectInPosition:tag withData:item];
+    }
 }
 
 @end

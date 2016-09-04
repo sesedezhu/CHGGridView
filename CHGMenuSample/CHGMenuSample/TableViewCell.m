@@ -8,30 +8,37 @@
 
 #import "TableViewCell.h"
 #import "SecondViewController.h"
+//#import "MJRefresh.h"
 
 @implementation TableViewCell
-
-//-(void)awakeFromNib{
-//    [super awakeFromNib];
-//    NSLog(@"===");
-//    _tableView.dataSource = self;
-//    _tableView.delegate = self;
-//}
-
-//-(void)gridViewCellDidLoad{
-//    [super gridViewCellDidLoad];
-//    
-//    NSLog(@"gridViewCellDidLoad:%li",self.orderType);
-//}
 
 -(void)gridViewCellWillAppear{
     [super gridViewCellWillAppear];
     NSLog(@"😄");
+//    if (![_tableView.mj_header isRefreshing]) {
+//        [_tableView.mj_header beginRefreshing];
+//    }
+    
 }
 
--(void)onCreate{
+-(void)gridViewCellDidLoad{
     _tableView.dataSource = self;
     _tableView.delegate = self;
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+/*改变删除按钮的title*/
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -47,7 +54,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SecondViewController * secondVC = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
     secondVC.title = [NSString stringWithFormat:@"点单类型：%li  数据%li",_orderType,indexPath.row];
-//    _tableViewClick(tableView,indexPath);
     [self.target.navigationController pushViewController:secondVC animated:YES];
 }
 

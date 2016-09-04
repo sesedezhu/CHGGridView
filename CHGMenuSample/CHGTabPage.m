@@ -47,11 +47,13 @@
 }
 
 -(void)reloadData{
+    [_gridView reloadData];
     NSArray * views = [self subviews];
     for (UIView * view in views) {
         [view removeFromSuperview];
     }
     [self createView];
+    
 }
 
 -(void)createView{
@@ -69,6 +71,17 @@
     [self addSubview:_leftView];
     self.rightView = [[UIView alloc] init];
     [self addSubview:_rightView];
+}
+
+///显示指定页面
+-(void)showPageWithPageIndex:(NSInteger)page{
+    if ([_tabPageDataSource respondsToSelector:@selector(tabView:onChangedPage:)]) {
+        [_tabPageDataSource tabView:self onChangedPage:page];
+    }
+    ///以下新增生命周期
+    if (_gridView.cells[page] != [[NSNull alloc] init]) {
+        [_gridView.cells[page] gridViewCellWillAppear];
+    }
 }
 
 -(void)setNormalColor:(UIColor *)normalColor{
@@ -91,26 +104,6 @@
     _tabView.itemBtnCellLocation = _itemBtnCellLocation;
 }
 
-//-(void)willMoveToSuperview:(UIView *)newSuperview{
-//    [super willMoveToSuperview:newSuperview];
-//    CGFloat sliderHeight = [_tabPageDataSource heightForSliderInTabPage:self];
-//    if (_tabViewLoca == locationTop) {
-//        if (_useVCMode) {
-//            _leftView.frame = CGRectMake(0, 0, 60, sliderHeight);
-//            _rightView.frame = CGRectMake(self.frame.size.width - 60, 0, 60, sliderHeight);
-//            UIView * leftView = [_tabPageDataSource viewForLeftViewInTabPage:self];
-//            [_leftView addSubview:leftView];
-//            UIView * rightView = [_tabPageDataSource viewForRightViewInTabPage:self];
-//            [_rightView addSubview:rightView];
-//        }
-//        _tabView.frame = CGRectMake(_useVCMode ? 60 : 0, 0, self.frame.size.width - (_useVCMode ? 120 : 0), sliderHeight);
-//        _gridView.frame = CGRectMake(0, sliderHeight, self.frame.size.width, self.frame.size.height - sliderHeight);
-//    } else {
-//        _tabView.frame = CGRectMake(0, self.frame.size.height - sliderHeight, self.frame.size.width, sliderHeight);
-//        _gridView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - sliderHeight);
-//    }
-//}
-
 -(void)willMoveToWindow:(UIWindow *)newWindow{
     [super willMoveToWindow:newWindow];
     CGFloat sliderHeight = [_tabPageDataSource heightForSliderInTabPage:self];
@@ -118,10 +111,14 @@
         if (_useVCMode) {
             _leftView.frame = CGRectMake(0, 0, 60, sliderHeight);
             _rightView.frame = CGRectMake(self.frame.size.width - 60, 0, 60, sliderHeight);
-            UIView * leftView = [_tabPageDataSource viewForLeftViewInTabPage:self];
-            [_leftView addSubview:leftView];
-            UIView * rightView = [_tabPageDataSource viewForRightViewInTabPage:self];
-            [_rightView addSubview:rightView];
+            if ([_tabPageDataSource respondsToSelector:@selector(viewForLeftViewInTabPage:)]) {
+                UIView * leftView = [_tabPageDataSource viewForLeftViewInTabPage:self];
+                [_leftView addSubview:leftView];
+            }
+            if ([_tabPageDataSource respondsToSelector:@selector(viewForRightViewInTabPage:)]) {
+                UIView * rightView = [_tabPageDataSource viewForRightViewInTabPage:self];
+                [_rightView addSubview:rightView];
+            }
         }
         _tabView.frame = CGRectMake(_useVCMode ? 60 : 0, 0, self.frame.size.width - (_useVCMode ? 120 : 0), sliderHeight);
         _gridView.frame = CGRectMake(0, sliderHeight, self.frame.size.width, self.frame.size.height - sliderHeight);
@@ -134,7 +131,9 @@
 
 -(void)didMoveToSuperview{
     [super didMoveToSuperview];
-    [_tabPageDataSource tabView:self onChangedPage:_tabView.currSelected];
+    if ([_tabPageDataSource respondsToSelector:@selector(tabView:onChangedPage:)]) {
+        [_tabPageDataSource tabView:self onChangedPage:_tabView.currSelected];
+    }   
 }
 
 -(void)setItems:(NSArray *)items{
@@ -142,6 +141,7 @@
     _gridView.items = _items;
 }
 
+#pragma - mark CHGGridView datasource method
 -(void)setTabPageDataSource:(id<CHGTabPageDataSource>)tabPageDataSource{
     _tabPageDataSource = tabPageDataSource;
 }
@@ -174,6 +174,11 @@
     return self.frame.size.height - 40;
 }
 
+///创建完毕回调
+-(void)onCreateFinished{
+    [self showPageWithPageIndex:0];
+}
+
 #pragma mark CHGTabItemDataSource method
 ///获取自定义btn
 -(ItemBtnCell*)tabView:(id)tabView itemAtIndex:(NSInteger)position  suggestedHeight:(CGFloat)height suggestedWidth:(CGFloat)width{
@@ -187,13 +192,13 @@
 
 ///item被点击
 -(void)tabView:(id)tabView itemView:(id)itemView didSelectAtPosition:(NSInteger)position{
-    [_tabPageDataSource tabView:tabView itemView:itemView didSelectAtPosition:position];
+    if ([_tabPageDataSource respondsToSelector:@selector(tabView:itemView:didSelectAtPosition:)]) {
+        [_tabPageDataSource tabView:tabView itemView:itemView didSelectAtPosition:position];
+    }
     scrollWithClick = YES;
     CGRect rect = CGRectMake(self.frame.size.width * position, 0, self.frame.size.width , self.frame.size.width);
     [_gridView scrollRectToVisible:rect animated:YES];
-    if (_gridView.cells[_tabView.currSelected] != [[NSNull alloc] init]) {
-        [_gridView.cells[_tabView.currSelected] gridViewCellWillAppear];
-    }
+    [self showPageWithPageIndex:_tabView.currSelected];
 }
 
 //返回指示器的高度
@@ -216,17 +221,13 @@
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     scrollWithClick = NO;
     lastX = 0;
-    [_tabPageDataSource tabView:self onChangedPage:_tabView.currSelected];
-    ///以下新增生命周期
-//    NSLog(@"%@",_gridView.cells[_tabView.currSelected]);
-    if (_gridView.cells[_tabView.currSelected] != [[NSNull alloc] init]) {
-        [_gridView.cells[_tabView.currSelected] gridViewCellWillAppear];
-    }
-    
+    [self showPageWithPageIndex:_tabView.currSelected];
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
-    [_tabPageDataSource tabView:self onChangedPage:_tabView.currSelected];
+    if ([_tabPageDataSource respondsToSelector:@selector(tabView:onChangedPage:)]) {
+        [_tabPageDataSource tabView:self onChangedPage:_tabView.currSelected];
+    }
 }
 
 ///滑动中
