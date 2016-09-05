@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger,CHGTabViewLocation){
 
 @end
 
-@interface CHGTabPage : UIView<CHGGridViewDatasource,CHGTabItemDataSource,UIScrollViewDelegate>{
+@interface CHGTabPage : UIView<CHGGridViewDatasource,CHGTabItemDataSource,CHGGridViewScrollDelegate>{
     CGFloat  lastX;
     BOOL scrollWithClick;  //标记页面滑动是否为点击触发
 //    UIView * leftView;                          ///左边试图

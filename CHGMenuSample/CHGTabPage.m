@@ -63,7 +63,8 @@
     
     self.gridView = [[CHGGridView alloc] init];
     _gridView.gridViewDatasource = self;
-    _gridView.delegate = self;
+//    _gridView.delegate = self;
+    _gridView.gridViewScrollDelegate = self;
     [self addSubview:_gridView];
     
     ///添加辅助view
@@ -217,26 +218,57 @@
     lastX = 0;
 }
 
-///手指离开时触发
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+/////手指离开时触发
+//-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+//    scrollWithClick = NO;
+//}
+
+/////滑动完毕
+//-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+//    scrollWithClick = NO;
+//    lastX = 0;
+//    [self showPageWithPageIndex:_tabView.currSelected];
+//}
+
+//- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+//    if ([_tabPageDataSource respondsToSelector:@selector(tabView:onChangedPage:)]) {
+//        [_tabPageDataSource tabView:self onChangedPage:_tabView.currSelected];
+//    }
+//}
+
+///滑动中
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    CGRect f = _tabView.slideIndicator.frame;
+//    CGFloat p = scrollView.contentOffset.x / scrollView.contentSize.width;
+//    _tabView.slideIndicator.frame = CGRectMake(p*_tabView.frame.size.width, f.origin.y, f.size.width, f.size.height);
+//    if (!scrollWithClick) {
+//        _tabView.currSelected = lroundf(scrollView.contentOffset.x / scrollView.frame.size.width);
+//        if (_tabView.lastPage != _tabView.currSelected) {
+//            [_gridView.cells[_tabView.lastPage] gridViewCellDidDisappear];
+//        }
+//    }
+//}
+
+
+
+
+-(void)gridViewWillBeginDragging:(UIScrollView *)scrollView{
     scrollWithClick = NO;
 }
 
-///滑动完毕
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+-(void)gridViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     scrollWithClick = NO;
     lastX = 0;
     [self showPageWithPageIndex:_tabView.currSelected];
 }
 
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+-(void)gridViewDidEndDecelerating:(UIScrollView *)scrollView {
     if ([_tabPageDataSource respondsToSelector:@selector(tabView:onChangedPage:)]) {
         [_tabPageDataSource tabView:self onChangedPage:_tabView.currSelected];
     }
 }
 
-///滑动中
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+-(void)gridViewDidScroll:(UIScrollView *)scrollView{
     CGRect f = _tabView.slideIndicator.frame;
     CGFloat p = scrollView.contentOffset.x / scrollView.contentSize.width;
     _tabView.slideIndicator.frame = CGRectMake(p*_tabView.frame.size.width, f.origin.y, f.size.width, f.size.height);

@@ -11,4 +11,7 @@
 
 @interface NewGridViewTestViewController : UIViewController<CHGGridViewDatasource>
 
+@property(nonatomic,strong) NSString * a;
+@property(nonatomic,strong) CHGGridView * gridViewU;
+
 @end

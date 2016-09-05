@@ -15,7 +15,7 @@
 //    PageControlShowInner//重合显示
 //};
 
-@interface CHGMenu : UIView<UIScrollViewDelegate> {
+@interface CHGMenu : UIView<CHGGridViewScrollDelegate> {
     NSInteger currPage;
 }
 

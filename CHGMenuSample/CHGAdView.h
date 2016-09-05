@@ -19,7 +19,7 @@
 
 @end
 
-@interface CHGAdView : UIView<CHGGridViewDatasource,CHGGridViewDelegate,UIScrollViewDelegate>{
+@interface CHGAdView : UIView<CHGGridViewDatasource,CHGGridViewDelegate,CHGGridViewScrollDelegate>{
     BOOL refresh;
 }
 

@@ -11,7 +11,7 @@
 		0E66C8DC1D768ACD00A88FF3 /* Tab2TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E66C8DA1D768ACD00A88FF3 /* Tab2TestViewController.xib */; };
 		0E66C8E11D76A45200A88FF3 /* Tab11Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E66C8E01D76A45200A88FF3 /* Tab11Cell.m */; };
 		0E66C8E31D76A65400A88FF3 /* Tab11Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E66C8E21D76A65400A88FF3 /* Tab11Cell.xib */; };
-		5F06B8C71D7C74FF00197935 /* CHGGridViewU.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F06B8C61D7C74FF00197935 /* CHGGridViewU.m */; };
+		5F06B8C71D7C74FF00197935 /* CHGGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F06B8C61D7C74FF00197935 /* CHGGridView.m */; };
 		5F06B8CB1D7C77C700197935 /* NewGridViewTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F06B8CA1D7C77C700197935 /* NewGridViewTestViewController.m */; };
 		5F0B254D1D6973FE0005D4A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B254C1D6973FE0005D4A6 /* main.m */; };
 		5F0B25501D6973FE0005D4A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B254F1D6973FE0005D4A6 /* AppDelegate.m */; };
@@ -21,7 +21,6 @@
 		5F0B25691D6973FF0005D4A6 /* CHGMenuSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25681D6973FF0005D4A6 /* CHGMenuSampleTests.m */; };
 		5F0B25741D6973FF0005D4A6 /* CHGMenuSampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25731D6973FF0005D4A6 /* CHGMenuSampleUITests.m */; };
 		5F0B25911D69742A0005D4A6 /* CHGAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25831D69742A0005D4A6 /* CHGAdView.m */; };
-		5F0B25921D69742A0005D4A6 /* CHGGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25851D69742A0005D4A6 /* CHGGridView.m */; };
 		5F0B25931D69742A0005D4A6 /* CHGGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25871D69742A0005D4A6 /* CHGGridViewCell.m */; };
 		5F0B25941D69742A0005D4A6 /* CHGMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25891D69742A0005D4A6 /* CHGMenu.m */; };
 		5F0B25951D69742A0005D4A6 /* CHGTabPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B258B1D69742A0005D4A6 /* CHGTabPage.m */; };
@@ -78,8 +77,8 @@
 		0E66C8DF1D76A45200A88FF3 /* Tab11Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tab11Cell.h; sourceTree = "<group>"; };
 		0E66C8E01D76A45200A88FF3 /* Tab11Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tab11Cell.m; sourceTree = "<group>"; };
 		0E66C8E21D76A65400A88FF3 /* Tab11Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tab11Cell.xib; sourceTree = "<group>"; };
-		5F06B8C51D7C74FF00197935 /* CHGGridViewU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGGridViewU.h; sourceTree = "<group>"; };
-		5F06B8C61D7C74FF00197935 /* CHGGridViewU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGGridViewU.m; sourceTree = "<group>"; };
+		5F06B8C51D7C74FF00197935 /* CHGGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGGridView.h; sourceTree = "<group>"; };
+		5F06B8C61D7C74FF00197935 /* CHGGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGGridView.m; sourceTree = "<group>"; };
 		5F06B8C91D7C77C700197935 /* NewGridViewTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGridViewTestViewController.h; sourceTree = "<group>"; };
 		5F06B8CA1D7C77C700197935 /* NewGridViewTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGridViewTestViewController.m; sourceTree = "<group>"; };
 		5F0B25481D6973FE0005D4A6 /* CHGMenuSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHGMenuSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,8 +97,6 @@
 		5F0B25751D6973FF0005D4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F0B25821D69742A0005D4A6 /* CHGAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGAdView.h; sourceTree = "<group>"; };
 		5F0B25831D69742A0005D4A6 /* CHGAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGAdView.m; sourceTree = "<group>"; };
-		5F0B25841D69742A0005D4A6 /* CHGGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGGridView.h; sourceTree = "<group>"; };
-		5F0B25851D69742A0005D4A6 /* CHGGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGGridView.m; sourceTree = "<group>"; };
 		5F0B25861D69742A0005D4A6 /* CHGGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGGridViewCell.h; sourceTree = "<group>"; };
 		5F0B25871D69742A0005D4A6 /* CHGGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGGridViewCell.m; sourceTree = "<group>"; };
 		5F0B25881D69742A0005D4A6 /* CHGMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGMenu.h; sourceTree = "<group>"; };
@@ -289,12 +286,10 @@
 				5F0B25E71D69BF040005D4A6 /* CHGTabPage */,
 				5F0B25E61D69BEF00005D4A6 /* CHGMenu */,
 				5F0B25E51D69BEC60005D4A6 /* CHGAdView */,
-				5F0B25841D69742A0005D4A6 /* CHGGridView.h */,
-				5F0B25851D69742A0005D4A6 /* CHGGridView.m */,
 				5F0B25861D69742A0005D4A6 /* CHGGridViewCell.h */,
 				5F0B25871D69742A0005D4A6 /* CHGGridViewCell.m */,
-				5F06B8C51D7C74FF00197935 /* CHGGridViewU.h */,
-				5F06B8C61D7C74FF00197935 /* CHGGridViewU.m */,
+				5F06B8C51D7C74FF00197935 /* CHGGridView.h */,
+				5F06B8C61D7C74FF00197935 /* CHGGridView.m */,
 			);
 			name = CHGGridView;
 			sourceTree = "<group>";
@@ -482,7 +477,7 @@
 				TargetAttributes = {
 					5F0B25471D6973FE0005D4A6 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = NNLNXN4V35;
+						DevelopmentTeam = MWNJKY7CNW;
 					};
 					5F0B25631D6973FF0005D4A6 = {
 						CreatedOnToolsVersion = 7.3;
@@ -566,7 +561,6 @@
 				5F0B25931D69742A0005D4A6 /* CHGGridViewCell.m in Sources */,
 				5F0B25E31D69BA690005D4A6 /* SecondViewController.m in Sources */,
 				5F0B25971D69742A0005D4A6 /* ItemBtnCell.m in Sources */,
-				5F0B25921D69742A0005D4A6 /* CHGGridView.m in Sources */,
 				5F0B25A71D6980790005D4A6 /* NavCell.m in Sources */,
 				5F0B25CE1D69964A0005D4A6 /* Tab1ViewController.m in Sources */,
 				5F0B25D21D699EEF0005D4A6 /* Tab1BtnCell.m in Sources */,
@@ -584,7 +578,7 @@
 				5F0B25591D6973FE0005D4A6 /* CHGMenuSample.xcdatamodeld in Sources */,
 				5F0B25951D69742A0005D4A6 /* CHGTabPage.m in Sources */,
 				5F0B25911D69742A0005D4A6 /* CHGAdView.m in Sources */,
-				5F06B8C71D7C74FF00197935 /* CHGGridViewU.m in Sources */,
+				5F06B8C71D7C74FF00197935 /* CHGGridView.m in Sources */,
 				5F0B25EC1D69FD0F0005D4A6 /* MemoryTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,9 +716,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CHGMenuSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chg.qiche;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chg.qiche-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bccf6e52-a1a8-4fb7-a8e5-5b541ef7ee1a";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -736,9 +730,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CHGMenuSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chg.qiche;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chg.qiche-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bccf6e52-a1a8-4fb7-a8e5-5b541ef7ee1a";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

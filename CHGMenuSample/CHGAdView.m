@@ -20,15 +20,14 @@
 @synthesize islayout = _islayout;
 @synthesize dataSource = _dataSource;
 
-
 -(void)willMoveToWindow:(UIWindow *)newWindow{
     [super willMoveToWindow:newWindow];
-    NSLog(@"didMoveToWindow");
     if (_isCycleShow) {
         NSMutableArray * dataTemp = [[NSMutableArray alloc] initWithArray:_data];
         [dataTemp insertObject:[_data objectAtIndex:_data.count - 1] atIndex:0];
         [dataTemp addObject:[_data objectAtIndex:0]];
 //        self.data = dataTemp;
+        NSLog(@"广告数量：%li",dataTemp.count);
         _chgMenu.items = dataTemp;
         _pageControl.numberOfPages = _data.count;//dataTemp.count - 2;
     } else {
@@ -84,7 +83,8 @@
     self.chgMenu = [[CHGMenu alloc] initWithFrame:self.frame];
     _chgMenu.gridViewDatasource = self;
     _chgMenu.gridViewDelegate = self;
-    _chgMenu.gridView.delegate = self;
+//    _chgMenu.gridView.delegate = self;
+    _chgMenu.gridView.gridViewScrollDelegate = self;
     _chgMenu.tag = 1;
     _chgMenu.showPageControl = NO;
     _chgMenu.pageControl.backgroundColor = [UIColor redColor];
@@ -103,7 +103,6 @@
     if (_isCycleShow) {
         [_chgMenu.gridView scrollRectToVisible:CGRectMake(_chgMenu.gridView.frame.size.width, 0, _chgMenu.gridView.frame.size.width, _chgMenu.gridView.frame.size.height) animated:NO];
     }
-    
 }
 
 
@@ -135,20 +134,51 @@
     [_dataSource adView:self didSelectInPosition:position withData:data];
 }
 
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+//-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+//    _isDragging = YES;
+//}
+
+//-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+//    _isDragging = NO;
+//    //计算拖动的页数
+//    float page = scrollView.contentOffset.x / [UIScreen mainScreen].bounds.size.width;
+//    _pageControl.currentPage = lroundf(page);
+//}
+
+//-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+//    if (_isCycleShow) {
+//        CGFloat pagewidth = [UIScreen mainScreen].bounds.size.width;
+//        int currentPage = floor((_chgMenu.gridView.contentOffset.x - pagewidth/ ([_chgMenu.items count])) / pagewidth) + 1;
+//        if (currentPage == 0) {
+//            [_chgMenu.gridView scrollRectToVisible:CGRectMake(_chgMenu.gridView.frame.size.width * ([_chgMenu.items count] - 2),0,_chgMenu.gridView.frame.size.width,_chgMenu.gridView.frame.size.height) animated:NO]; // 序号0 最后1页
+//        } else if (currentPage==([_chgMenu.items count] - 1)) {
+//            [_chgMenu.gridView scrollRectToVisible:CGRectMake(_chgMenu.gridView.frame.size.width,0,_chgMenu.gridView.frame.size.width,_chgMenu.gridView.frame.size.height) animated:NO]; // 最后+1,循环第1页
+//        }
+//    }
+//}
+
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    CGFloat page = scrollView.contentOffset.x / self.frame.size.width;
+//    _pageControl.currentPage = lroundf(_isCycleShow ? page - 1 : page);
+//}
+
+
+
+
+-(void)gridViewWillBeginDragging:(UIScrollView *)scrollView{
     _isDragging = YES;
 }
 
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+-(void)gridViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     _isDragging = NO;
     //计算拖动的页数
-    float page = scrollView.contentOffset.x / [UIScreen mainScreen].bounds.size.width;
+    float page = scrollView.contentOffset.x / self.frame.size.width;
     _pageControl.currentPage = lroundf(page);
 }
 
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+-(void)gridViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (_isCycleShow) {
-        CGFloat pagewidth = [UIScreen mainScreen].bounds.size.width;
+        CGFloat pagewidth = self.frame.size.width;
         int currentPage = floor((_chgMenu.gridView.contentOffset.x - pagewidth/ ([_chgMenu.items count])) / pagewidth) + 1;
         if (currentPage == 0) {
             [_chgMenu.gridView scrollRectToVisible:CGRectMake(_chgMenu.gridView.frame.size.width * ([_chgMenu.items count] - 2),0,_chgMenu.gridView.frame.size.width,_chgMenu.gridView.frame.size.height) animated:NO]; // 序号0 最后1页
@@ -158,7 +188,7 @@
     }
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+-(void)gridViewDidScroll:(UIScrollView *)scrollView{
     CGFloat page = scrollView.contentOffset.x / self.frame.size.width;
     _pageControl.currentPage = lroundf(_isCycleShow ? page - 1 : page);
 }
