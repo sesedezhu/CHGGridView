@@ -23,11 +23,12 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    CHGGridViewU * gridViewU = [[CHGGridViewU alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 180)];
+    CHGGridViewU * gridViewU = [[CHGGridViewU alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 360)];
     gridViewU.items = [self simulationData];
     gridViewU.gridViewDatasource = self;
 //    gridViewU.backgroundColor = [UIColor greenColor];
     [self.view addSubview:gridViewU];
+    [gridViewU registerNibName:@"MenuItemCell" forCellReuseIdentifier:@"MenuItemCell"];
     
 }
 
@@ -38,15 +39,16 @@
 
 //返回gridView中的行数
 -(NSInteger)numberOfRowInCHGGridView:(id) gridView {
-    return 1;
+    return 2;
 }
 //返回gridView中的列数
 -(NSInteger)numberOfcolumnInRow:(id) gridView{
-    return 1;
+    return 4;
 }
 //返回item的view
 -(CHGGridViewCell*)gridView:(id)gridView itemAtIndex:(NSInteger) position withData:(NSDictionary*)data{
-    MenuItemCell * menuItemCell = [MenuItemCell initWithNibName:@"MenuItemCell"];
+//    MenuItemCell * menuItemCell = [MenuItemCell initWithNibName:@"MenuItemCell"];
+    MenuItemCell * menuItemCell = (MenuItemCell*)[((CHGGridViewU*)gridView) dequeueReusableCellWithIdentifier:@"MenuItemCell" withPosition:position];
     menuItemCell.image.image = [UIImage imageNamed:[data objectForKey:@"icon"]];
     menuItemCell.title.text = [data objectForKey:@"title"];
     return menuItemCell;

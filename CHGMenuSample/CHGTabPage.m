@@ -80,7 +80,12 @@
     }
     ///以下新增生命周期
     if (_gridView.cells[page] != [[NSNull alloc] init]) {
+        
+        if (_tabView.lastPage != page) {
+            [_gridView.cells[_tabView.lastPage] gridViewCellDidDisappear];
+        }
         [_gridView.cells[page] gridViewCellWillAppear];
+        
     }
 }
 
@@ -237,6 +242,9 @@
     _tabView.slideIndicator.frame = CGRectMake(p*_tabView.frame.size.width, f.origin.y, f.size.width, f.size.height);
     if (!scrollWithClick) {
         _tabView.currSelected = lroundf(scrollView.contentOffset.x / scrollView.frame.size.width);
+        if (_tabView.lastPage != _tabView.currSelected) {
+            [_gridView.cells[_tabView.lastPage] gridViewCellDidDisappear];
+        }
     }
 }
 

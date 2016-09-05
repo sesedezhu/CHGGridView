@@ -21,6 +21,11 @@
     
 }
 
+-(void)gridViewCellDidDisappear{
+    [super gridViewCellDidDisappear];
+    NSLog(@"gridViewCellDidDisappear:%li",self.tag);
+}
+
 -(void)gridViewCellDidLoad{
     _tableView.dataSource = self;
     _tableView.delegate = self;

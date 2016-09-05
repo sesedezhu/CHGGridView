@@ -38,11 +38,6 @@
     return self;
 }
 
-
-//-(void)creatView{
-//    
-//}
-
 -(void)willMoveToWindow:(UIWindow *)newWindow{
     [super willMoveToWindow:newWindow];
     if (_btns.count != 0) {
@@ -62,11 +57,10 @@
         [self addSubview:cell];
         ((ItemBtnCell*)cell).title.textColor = i == 0 ? _selectedColor : _normalColor;
     }
-    if (_itemBtnCellLocation == CHGTabViewItemBtnCellLocationTop) {///滑块在顶部
-        _slideIndicator.frame = CGRectMake(0, 0, itemWidth, indicatorHeight);
-    } else {
-        _slideIndicator.frame = CGRectMake(0, itemHeight - indicatorHeight, itemWidth, indicatorHeight);
-    }
+    //判断滑块的位置
+    _slideIndicator.frame = _itemBtnCellLocation == CHGTabViewItemBtnCellLocationTop ?
+                            CGRectMake(0, 0, itemWidth, indicatorHeight) :
+                            CGRectMake(0, itemHeight - indicatorHeight, itemWidth, indicatorHeight);
     [self addSubview:_slideIndicator];
 }
 
@@ -80,6 +74,7 @@
 }
 
 -(void)setCurrSelected:(NSInteger)currSelected{
+    _lastPage = _currSelected;
     _currSelected = currSelected;
     for (ItemBtnCell * cell in _btns) {
         cell.title.textColor = cell.tag == _currSelected ? _selectedColor : _normalColor;
