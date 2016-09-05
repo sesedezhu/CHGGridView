@@ -14,9 +14,15 @@
     NSArray * views = [[NSBundle mainBundle] loadNibNamed:nibName owner:nil options:nil];
     id view = [views objectAtIndex:0];
     CHGGridViewCell * cell = (CHGGridViewCell*)view;
+    cell.currInPage = -1;
     [cell gridViewCellDidLoad];
     return view;
 }
+
+//-(void)removeFromSuperview{
+//    [super removeFromSuperview];
+//    [self gridViewCellDidDisappear];
+//}
 
 -(void)gridViewCellDidLoad{
     

@@ -36,7 +36,6 @@
         self.cellWidth = self.frame.size.width / _column;
         [self createView];
     }
-    
 }
 
 ///注册cell

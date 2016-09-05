@@ -45,6 +45,7 @@ typedef NS_ENUM(NSInteger,CHGTabViewItemBtnCellLocation){
 @property(nonatomic,strong) UIColor * selectedColor;                    //选中的颜色
 @property(nonatomic,strong) UIColor * normalColor;                      //正常状态的颜色
 @property(nonatomic,assign) CHGTabViewItemBtnCellLocation itemBtnCellLocation;
+@property(nonatomic,assign) NSInteger lastPage;                         //上次选中的页面
 
 -(CHGGridViewCell*)getCurrSelectedAfter;                                //获取当前选中按钮后面的一个
 -(CHGGridViewCell*)getCurrSelectedBefore;                               //获取当前选中按钮前面的一个
