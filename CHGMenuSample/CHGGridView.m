@@ -13,7 +13,7 @@
 @implementation CHGGridView{
     NSInteger scrollEndBeforePage;///滑动结束之前所在的页面
     BOOL isPerformDisappearGridViewCells;//在一次拖动中是否执行了GridViewCell的willDisappear的方法
-    BOOL manualStartSliding;//手动出发view滑动
+//    BOOL manualStartSliding;//手动出发view滑动
 }
 
 - (instancetype)init
@@ -54,7 +54,7 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
     NSLog(@"keyPath:%@",keyPath);
-    if (manualStartSliding) {
+//    if (manualStartSliding) {
         if ([keyPath isEqualToString:@"contentOffset"]) {
             int f = self.contentOffset.x;
             int w = self.frame.size.width;
@@ -63,7 +63,7 @@
                 [self removeObserver:self forKeyPath:@"contentOffset"];
             }
         }
-    }
+//    }
     
 }
 
@@ -204,7 +204,7 @@
 -(void)createViewWithIndex:(NSInteger)i withColum:(NSInteger)colum inPage:(NSInteger)page{
     CHGGridViewCell * cell = [_gridViewDatasource gridView:self itemAtIndex:i withData:[_items objectAtIndex:i]];
     cell.frame = [self calculateFrameWithPosition:i andColum:colum andPage:page];
-    if (!manualStartSliding) [cell gridViewCellWillAppear];
+    [cell gridViewCellWillAppear];
     cell.tag = i;
     cell.currInPage = page;//标记当前cell所在页面
     [cell addTarget:self action:@selector(cellClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -246,7 +246,7 @@
     [_gridViewScrollDelegate gridViewDidEndDecelerating:scrollView];
     isPerformDisappearGridViewCells = NO;
     [self createCellsOfPage:_curryPage fromInit:YES];
-    manualStartSliding = NO;
+//    manualStartSliding = NO;
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -283,7 +283,7 @@
 
 -(void)scrollRectToVisible:(CGRect)rect animated:(BOOL)animated{
     [super scrollRectToVisible:rect animated:animated];
-    manualStartSliding = YES;
+//    manualStartSliding = YES;
     [self addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     isPerformDisappearGridViewCells = NO;
     scrollEndBeforePage = _curryPage;
