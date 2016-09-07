@@ -469,7 +469,7 @@
 				TargetAttributes = {
 					5F0B25471D6973FE0005D4A6 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = NNLNXN4V35;
+						DevelopmentTeam = MWNJKY7CNW;
 					};
 					5F0B25631D6973FF0005D4A6 = {
 						CreatedOnToolsVersion = 7.3;
@@ -710,7 +710,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chg.qiche;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "31933b5a-a6a4-4cce-a02c-e9f35bca24d7";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -724,7 +724,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chg.qiche;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "31933b5a-a6a4-4cce-a02c-e9f35bca24d7";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
