@@ -24,6 +24,7 @@
     _adView.isTimerShow = NO;//是否启用定时切换
     _adView.isShowPageControll = YES;//是否显示pageControll
     _adView.dataSource = self;
+    [_adView.chgMenu.gridView registerNibName:@"NavCell" forCellReuseIdentifier:@"NavCell"];
     [self.view addSubview:_adView];
 }
 
@@ -35,7 +36,8 @@
 
 ///构造返回的view  需要继承CHGGridViewCell类
 -(CHGGridViewCell*)adView:(id)adView itemAtIndex:(NSInteger) position withData:(NSDictionary*)data{
-    NavCell * cell = [NavCell initWithNibName:@"NavCell"];
+//    NavCell * cell = [NavCell initWithNibName:@"NavCell"];
+    NavCell * cell = (NavCell*)[((CHGAdView*)adView).chgMenu.gridView dequeueReusableCellWithIdentifier:@"NavCell" withPosition:position];
     cell.image.image = [UIImage imageNamed:(NSString*)data];
     cell.btn.hidden = position != 2;
     cell.click = ^(){

@@ -65,7 +65,7 @@ typedef NS_ENUM(NSUInteger, CHGGridViewScrollStatus) {
 @property(nonatomic,assign) CGFloat cellWidth;//cell的宽度
 //@property(nonatomic,assign) NSInteger curryClumns;//当前创建的列
 @property(nonatomic,assign) NSInteger curryPage;//当前创建的page
-@property(nonatomic,strong) NSMutableArray * cells;
+//@property(nonatomic,strong) NSMutableArray * cells;
 @property(nonatomic,weak) id<CHGGridViewDatasource> gridViewDatasource;
 @property(nonatomic,weak) id<CHGGridViewDelegate> gridViewDelegate;
 @property(nonatomic,weak) id<CHGGridViewScrollDelegate> gridViewScrollDelegate;

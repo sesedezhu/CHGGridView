@@ -175,19 +175,11 @@
 			isa = PBXGroup;
 			children = (
 				0E66C8DE1D76A42E00A88FF3 /* tab2 */,
-				0E66C8DD1D76A41D00A88FF3 /* tab1 */,
 				0E66C8D81D768ACD00A88FF3 /* Tab2TestViewController.h */,
 				0E66C8D91D768ACD00A88FF3 /* Tab2TestViewController.m */,
 				0E66C8DA1D768ACD00A88FF3 /* Tab2TestViewController.xib */,
 			);
 			name = 2tab;
-			sourceTree = "<group>";
-		};
-		0E66C8DD1D76A41D00A88FF3 /* tab1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = tab1;
 			sourceTree = "<group>";
 		};
 		0E66C8DE1D76A42E00A88FF3 /* tab2 */ = {
@@ -477,7 +469,7 @@
 				TargetAttributes = {
 					5F0B25471D6973FE0005D4A6 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = MWNJKY7CNW;
+						DevelopmentTeam = NNLNXN4V35;
 					};
 					5F0B25631D6973FF0005D4A6 = {
 						CreatedOnToolsVersion = 7.3;
@@ -716,9 +708,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CHGMenuSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.chg.qiche-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chg.qiche;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "31933b5a-a6a4-4cce-a02c-e9f35bca24d7";
 			};
 			name = Debug;
 		};
@@ -730,9 +722,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CHGMenuSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.chg.qiche-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chg.qiche;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "31933b5a-a6a4-4cce-a02c-e9f35bca24d7";
 			};
 			name = Release;
 		};

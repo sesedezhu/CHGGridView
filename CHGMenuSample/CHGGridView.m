@@ -10,20 +10,23 @@
 #import "CHGGridViewCell.h"
 
 
-@implementation CHGGridView
+@implementation CHGGridView{
+    NSInteger scrollEndBeforePage;///滑动结束之前所在的页面
+    BOOL isPerformDisappearGridViewCells;//在一次拖动中是否执行了GridViewCell的willDisappear的方法
+    BOOL manualStartSliding;//手动出发view滑动
+}
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.backgroundColor = [UIColor redColor];
     }
     return self;
 }
 
 ///从新加载数据
 -(void)reloadData{
-    [self createCellsOfPage:_curryPage];
+    [self createCellsOfPage:_curryPage fromInit:NO];
 }
 
 ///计算最大page数目
@@ -37,14 +40,37 @@
     return page;
 }
 
--(void)willMoveToWindow:(UIWindow *)newWindow{
-    [super willMoveToWindow:newWindow];
-    if (_cells == nil || _cells.count == 0) {
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
         self.pagingEnabled = YES;
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
         self.delegate = self;
         _curryPage = 0;
+    }
+    return self;
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    NSLog(@"keyPath:%@",keyPath);
+    if (manualStartSliding) {
+        if ([keyPath isEqualToString:@"contentOffset"]) {
+            int f = self.contentOffset.x;
+            int w = self.frame.size.width;
+            if (f % w == 0) {
+                [self scrollViewDidEndDecelerating:self];
+                [self removeObserver:self forKeyPath:@"contentOffset"];
+            }
+        }
+    }
+    
+}
+
+
+-(void)willMoveToWindow:(UIWindow *)newWindow{
+    [super willMoveToWindow:newWindow];
+    if (_queue.count == 0) {
         self.row = [_gridViewDatasource numberOfRowInCHGGridView:self];
         self.column = [_gridViewDatasource numberOfcolumnInRow:self];
         self.cellHeight = [_gridViewDatasource gridViewHeightForCell:self];
@@ -52,10 +78,8 @@
         _maxCellOfPage = _row * _column;
         _maxPage = [self getTotailPageWithTotalColumn:_column andRow:_row andTotalItem:_items.count];
         [self createAllRegisterCellType];
-        [self createCellsOfPage:0];
-        
+        [self createCellsOfPage:0 fromInit:YES];
         self.contentSize = CGSizeMake(self.frame.size.width * _maxPage, 1);
-        self.backgroundColor = [UIColor orangeColor];
     }
 }
 
@@ -93,6 +117,39 @@
     [_queue setObject:cells forKey:identifier];
 }
 
+///更具position 获取 GridViewCell
+-(CHGGridViewCell*)indexPathWithPage:(NSInteger)position{
+    CHGGridViewCell * cell = [_gridViewDatasource gridView:self itemAtIndex:position withData:[_items objectAtIndex:position]];
+    return cell;
+}
+
+///执行即将消失的Cell
+-(void)performWillDisappearGridViewCells{
+    NSInteger count = [self numberCellsOfPage:scrollEndBeforePage];///获取当前页面cell的数量
+    for (int i=0; i<count; i++) {
+//        NSLog(@"即将消失的cell数字：%li",scrollEndBeforePage * _maxCellOfPage+i);
+        [[self indexPathWithPage:scrollEndBeforePage * _maxCellOfPage+i] gridViewCellWillDisappear];
+    }
+}
+
+///执行cell的已经消失方法
+-(void)performDidDisappearGridViewCells{
+    NSInteger count = [self numberCellsOfPage:scrollEndBeforePage];///获取当前页面cell的数量
+    for (int i=0; i<count; i++) {
+//        NSLog(@"已经消失的cell数字：%li",scrollEndBeforePage * _maxCellOfPage+i);
+        [[self indexPathWithPage:scrollEndBeforePage * _maxCellOfPage+i] gridViewCellDidDisappear];
+    }
+}
+
+///已经显示的cell
+-(void)performDidAppearGridViewCells{
+    NSInteger count = [self numberCellsOfPage:_curryPage];///获取当前页面cell的数量
+    for (int i=0; i<count; i++) {
+//        NSLog(@"已经显示的cell数字：%li",_curryPage * _maxCellOfPage+i);
+        [[self indexPathWithPage:_curryPage * _maxCellOfPage+i] gridViewCellDidAppear];
+    }
+}
+
 ///注册Cell的nib文件
 -(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier{
     if (_identifiersDic == nil) {
@@ -108,16 +165,24 @@
     NSArray * cells = [_queue objectForKey:identifier];
     if (cells != nil) {
         if (_curryPage % 2 == 0) {//如果是偶数页面
-            return cells[position%_maxCellOfPage + _maxCellOfPage];
+//            NSLog(@"当前获取数据：%li",position % _maxCellOfPage + _maxCellOfPage);
+            CHGGridViewCell * cell = cells[position % _maxCellOfPage + _maxCellOfPage];
+            return cell;
         } else {//如果是奇数页面
-            return cells[position%_maxCellOfPage];
+//            NSLog(@"当前获取数据：%li",position % _maxCellOfPage);
+            CHGGridViewCell * cell = cells[position % _maxCellOfPage];
+            return cell;
         }
     }
     return nil;
 }
 
 ///创建指定页面的cell
--(void)createCellsOfPage:(NSInteger)page{
+-(void)createCellsOfPage:(NSInteger)page fromInit:(BOOL)fromInitMethod{
+    if (!fromInitMethod) {
+        [self performWillDisappearGridViewCells];
+    }
+    
     NSInteger columTemp = -1;
     for (long i= page * _maxCellOfPage; i<_maxCellOfPage * page+[self numberCellsOfPage:page]; i++) {
         if (i%_column == 0) {
@@ -129,30 +194,24 @@
 
 ///计算frame
 -(CGRect)calculateFrameWithPosition:(NSInteger)i andColum:(NSInteger)colum andPage:(NSInteger)page{
-    CGRect frame_ = CGRectMake((i % _column) * _cellWidth + page * self.frame.size.width,
+    return CGRectMake((i % _column) * _cellWidth + page * self.frame.size.width,
                                (colum % _row == 0 ? 0 : colum % _row) * _cellHeight,
                                _cellWidth,
                                _cellHeight);
-    return frame_;
 }
 
 ///创建cell
 -(void)createViewWithIndex:(NSInteger)i withColum:(NSInteger)colum inPage:(NSInteger)page{
     CHGGridViewCell * cell = [_gridViewDatasource gridView:self itemAtIndex:i withData:[_items objectAtIndex:i]];
     cell.frame = [self calculateFrameWithPosition:i andColum:colum andPage:page];
+    if (!manualStartSliding) [cell gridViewCellWillAppear];
     cell.tag = i;
     cell.currInPage = page;//标记当前cell所在页面
     [cell addTarget:self action:@selector(cellClick:) forControlEvents:UIControlEventTouchUpInside];
-    if (_cells == nil) {
-        self.cells = [[NSMutableArray alloc] init];
-    }
-    [_cells addObject:cell == nil ? [[NSNull alloc] init] : cell];
     [self addSubview:cell];
 }
 
-
 -(void)cellClick:(id)sender {
-    NSLog(@"点击%li",((CHGGridViewCell*)sender).tag);
     NSInteger tag = ((CHGGridViewCell*)sender).tag;
     NSDictionary * item = [_items objectAtIndex:tag];
     if ([_gridViewDatasource respondsToSelector:@selector(menu:didSelectInPosition:withData:)]) {
@@ -162,6 +221,8 @@
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
 //    NSLog(@"将要滑动");
+    isPerformDisappearGridViewCells = NO;
+    scrollEndBeforePage = _curryPage;
     _isDragging = YES;
     _isCreate = NO;
     _scrollStartX = scrollView.contentOffset.x;
@@ -175,9 +236,17 @@
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+///以下2个方法暂时注释
+    [self performDidDisappearGridViewCells];
+    [self performDidAppearGridViewCells];
     _isCreate = NO;
+//    NSLog(@"滑动结束");
+    scrollEndBeforePage = _curryPage;
     _scrollStatus = CHGGridViewScrollStatusDefault;
     [_gridViewScrollDelegate gridViewDidEndDecelerating:scrollView];
+    isPerformDisappearGridViewCells = NO;
+    [self createCellsOfPage:_curryPage fromInit:YES];
+    manualStartSliding = NO;
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -189,7 +258,7 @@
         if(!_isCreate){
             _isCreate = YES;
             _curryPage += 1;
-            [self createCellsOfPage:_curryPage];
+            [self createCellsOfPage:_curryPage fromInit:NO];
         }
     } else if(currX < _lastScrollDownX){
 //        NSLog(@"向右滑动");
@@ -200,17 +269,27 @@
                 return;
             } else {
                 _curryPage -= 1;
-                [self createCellsOfPage:_curryPage];
+                [self createCellsOfPage:_curryPage fromInit:NO];
             }
         }
     } else {
-        NSLog(@"滑动结束");
+//        NSLog(@"滑动结束");
         _scrollStatus = CHGGridViewScrollStatusDefault;
     }
     _lastScrollDownX = currX;
     CGFloat page = scrollView.contentOffset.x / self.frame.size.width;
     _curryPage = lroundf(page);
-    
+}
+
+-(void)scrollRectToVisible:(CGRect)rect animated:(BOOL)animated{
+    [super scrollRectToVisible:rect animated:animated];
+    manualStartSliding = YES;
+    [self addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+    isPerformDisappearGridViewCells = NO;
+    scrollEndBeforePage = _curryPage;
+    _isDragging = YES;
+    _isCreate = NO;
+    _scrollStartX = self.contentOffset.x;
 }
 
 @end

@@ -32,4 +32,6 @@
 ///通过标识符获取cell
 -(CHGGridViewCell*)dequeueReusableCellWithIdentifier:(NSString*)identifier  withPosition:(NSInteger)position;
 
+-(void)reloadData;
+
 @end

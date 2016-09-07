@@ -17,13 +17,16 @@
 @property(nonatomic,assign) NSInteger currInPage;//当前cell所在页面  如果等于－1 则不在view中
 
 +(id)initWithNibName:(NSString*) nibName;
-///页面将显示
+/////页面将显示
 -(void)gridViewCellWillAppear;
+
+-(void)gridViewCellDidAppear;
 
 ///创建的时候
 -(void)gridViewCellDidLoad;
-
-///页面消失
+///页面即将消失
+-(void)gridViewCellWillDisappear;
+///页面已经消失
 -(void)gridViewCellDidDisappear;
 
 @end

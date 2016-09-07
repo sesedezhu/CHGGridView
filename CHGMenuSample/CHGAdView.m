@@ -40,6 +40,9 @@
     }
 }
 
+-(void)reloadData{
+    [_chgMenu reloadData];
+}
 
 //启动定时器
 -(void)startTimerShow{

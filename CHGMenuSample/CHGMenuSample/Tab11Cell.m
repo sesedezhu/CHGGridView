@@ -34,13 +34,13 @@
     _tabPage.slideIndicatorColor = [UIColor redColor];
     _tabPage.useVCMode = NO;//是否定义左侧和右侧的view
     _tabPage.backgroundColor = [UIColor redColor];
+    [_tabPage.gridView registerNibName:@"TableViewCell" forCellReuseIdentifier:@"TableViewCell"];
     [self addSubview:_tabPage];
 }
 
 ///返回页面
 -(CHGGridViewCell*)tabPage:(id)tabPage itemAtIndex:(NSInteger)page suggestedHeight:(CGFloat)height suggestedWidth:(CGFloat)width withData:(NSDictionary*)data{
-    TableViewCell * cell = [TableViewCell initWithNibName:@"TableViewCell"];
-//    cell.target = self.target;
+    TableViewCell * cell = (TableViewCell*)[((CHGTabPage*)tabPage).gridView dequeueReusableCellWithIdentifier:@"TableViewCell" withPosition:page];
     cell.orderType = page;
     return cell;
 }

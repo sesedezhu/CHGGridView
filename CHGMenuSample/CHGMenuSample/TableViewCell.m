@@ -14,19 +14,28 @@
 
 -(void)gridViewCellWillAppear{
     [super gridViewCellWillAppear];
-    NSLog(@"😄");
-//    if (![_tableView.mj_header isRefreshing]) {
-//        [_tableView.mj_header beginRefreshing];
-//    }
-    
+    NSLog(@"将要显示:%li",_orderType);
+    [_tableView reloadData];
+}
+
+-(void)gridViewCellDidAppear{
+    [super gridViewCellDidAppear];
+    NSLog(@"已经显示:%li",_orderType);
+}
+
+-(void)gridViewCellWillDisappear{
+    [super gridViewCellWillDisappear];
+    NSLog(@"将要消失:%li",_orderType);
 }
 
 -(void)gridViewCellDidDisappear{
     [super gridViewCellDidDisappear];
-    NSLog(@"gridViewCellDidDisappear:%li",self.tag);
+    NSLog(@"已经消失:%li",_orderType);
 }
 
 -(void)gridViewCellDidLoad{
+    [super gridViewCellDidLoad];
+    NSLog(@"页面加载完毕");
     _tableView.dataSource = self;
     _tableView.delegate = self;
 }

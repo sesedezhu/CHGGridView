@@ -35,6 +35,10 @@
     return self;
 }
 
+-(void)reloadData{
+    [_gridView reloadData];
+}
+
 -(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier{
     [_gridView registerNibName:nib forCellReuseIdentifier:identifier];
 }

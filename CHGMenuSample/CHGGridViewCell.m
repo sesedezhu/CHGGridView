@@ -19,11 +19,6 @@
     return view;
 }
 
-//-(void)removeFromSuperview{
-//    [super removeFromSuperview];
-//    [self gridViewCellDidDisappear];
-//}
-
 -(void)gridViewCellDidLoad{
     
 }
@@ -33,7 +28,17 @@
     
 }
 
-///页面消失
+///页面已经显示完毕
+-(void)gridViewCellDidAppear{
+    
+}
+
+///页面即将消失
+-(void)gridViewCellWillDisappear{
+    
+}
+
+///页面已经消失
 -(void)gridViewCellDidDisappear{
     
 }

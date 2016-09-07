@@ -22,31 +22,22 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 ///构造返回的view  需要继承CHGGridViewCell类
 -(CHGGridViewCell*)adView:(id)adView itemAtIndex:(NSInteger) position withData:(NSDictionary*)data{
-    AdCell * cell = [AdCell initWithNibName:@"AdCell"];
+    AdCell * cell = (AdCell*)[((CHGAdView*)adView).chgMenu.gridView dequeueReusableCellWithIdentifier:@"AdCell" withPosition:position];
     cell.image.image = [UIImage imageNamed:[data objectForKey:@"icon"]];
     return cell;
 }
 
 ///CHGGridViewCell被点击时候回调
 -(void)adView:(id)adView didSelectInPosition:(NSInteger)position withData:(NSDictionary*)data{
-//    NSString * message = [NSString stringWithFormat:@"当前选择的页面是:%li 当前页面的数据是：%@",position,data];
-//    UIAlertController * ac = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
-//    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
-//    [ac addAction:cancelAction];
-//    [self presentViewController:ac animated:YES completion:nil];
     Tab1ViewController * a = [[Tab1ViewController alloc] initWithNibName:@"Tab1ViewController" bundle:nil];
     [self.navigationController pushViewController:a animated:YES];
 }
 
-
-
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -70,10 +61,13 @@
         _adView.isTimerShow = YES;//是否启用定时切换
         _adView.isShowPageControll = YES;//是否显示pageControll
         _adView.dataSource = self;
+        [_adView.chgMenu.gridView registerNibName:@"AdCell" forCellReuseIdentifier:@"AdCell"];
         return _adView;
     }
     return nil;
 }
+
+
 
 ///模拟数据
 -(NSArray*)simulationData{
