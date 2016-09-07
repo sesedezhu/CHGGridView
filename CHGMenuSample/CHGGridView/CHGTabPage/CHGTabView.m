@@ -21,7 +21,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"CHGTabView   initWithFrame");
+//        NSLog(@"CHGTabView   initWithFrame");
         _currSelected = 0;
         self.slideIndicator = [[UIView alloc] init];
         self.backgroundColor = [UIColor whiteColor];
@@ -33,7 +33,7 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
-        NSLog(@"CHGTabView   init");
+//        NSLog(@"CHGTabView   init");
     }
     return self;
 }

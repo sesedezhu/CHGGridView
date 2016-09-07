@@ -53,7 +53,6 @@
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-    NSLog(@"keyPath:%@",keyPath);
 //    if (manualStartSliding) {
         if ([keyPath isEqualToString:@"contentOffset"]) {
             int f = self.contentOffset.x;

@@ -27,7 +27,7 @@
         [dataTemp insertObject:[_data objectAtIndex:_data.count - 1] atIndex:0];
         [dataTemp addObject:[_data objectAtIndex:0]];
 //        self.data = dataTemp;
-        NSLog(@"广告数量：%li",dataTemp.count);
+//        NSLog(@"广告数量：%li",dataTemp.count);
         _chgMenu.items = dataTemp;
         _pageControl.numberOfPages = _data.count;//dataTemp.count - 2;
     } else {

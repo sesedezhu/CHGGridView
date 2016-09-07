@@ -11,7 +11,6 @@
 		0E66C8DC1D768ACD00A88FF3 /* Tab2TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E66C8DA1D768ACD00A88FF3 /* Tab2TestViewController.xib */; };
 		0E66C8E11D76A45200A88FF3 /* Tab11Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E66C8E01D76A45200A88FF3 /* Tab11Cell.m */; };
 		0E66C8E31D76A65400A88FF3 /* Tab11Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E66C8E21D76A65400A88FF3 /* Tab11Cell.xib */; };
-		5F06B8C71D7C74FF00197935 /* CHGGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F06B8C61D7C74FF00197935 /* CHGGridView.m */; };
 		5F06B8CB1D7C77C700197935 /* NewGridViewTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F06B8CA1D7C77C700197935 /* NewGridViewTestViewController.m */; };
 		5F0B254D1D6973FE0005D4A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B254C1D6973FE0005D4A6 /* main.m */; };
 		5F0B25501D6973FE0005D4A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B254F1D6973FE0005D4A6 /* AppDelegate.m */; };
@@ -20,13 +19,6 @@
 		5F0B255E1D6973FE0005D4A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F0B255C1D6973FE0005D4A6 /* LaunchScreen.storyboard */; };
 		5F0B25691D6973FF0005D4A6 /* CHGMenuSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25681D6973FF0005D4A6 /* CHGMenuSampleTests.m */; };
 		5F0B25741D6973FF0005D4A6 /* CHGMenuSampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25731D6973FF0005D4A6 /* CHGMenuSampleUITests.m */; };
-		5F0B25911D69742A0005D4A6 /* CHGAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25831D69742A0005D4A6 /* CHGAdView.m */; };
-		5F0B25931D69742A0005D4A6 /* CHGGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25871D69742A0005D4A6 /* CHGGridViewCell.m */; };
-		5F0B25941D69742A0005D4A6 /* CHGMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25891D69742A0005D4A6 /* CHGMenu.m */; };
-		5F0B25951D69742A0005D4A6 /* CHGTabPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B258B1D69742A0005D4A6 /* CHGTabPage.m */; };
-		5F0B25961D69742A0005D4A6 /* CHGTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B258D1D69742A0005D4A6 /* CHGTabView.m */; };
-		5F0B25971D69742A0005D4A6 /* ItemBtnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B258F1D69742A0005D4A6 /* ItemBtnCell.m */; };
-		5F0B25981D69742A0005D4A6 /* ItemBtnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0B25901D69742A0005D4A6 /* ItemBtnCell.xib */; };
 		5F0B259C1D6976600005D4A6 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B259B1D6976600005D4A6 /* TableViewController.m */; };
 		5F0B25A71D6980790005D4A6 /* NavCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25A61D6980790005D4A6 /* NavCell.m */; };
 		5F0B25A91D6980870005D4A6 /* NavCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0B25A81D6980870005D4A6 /* NavCell.xib */; };
@@ -51,6 +43,14 @@
 		5F0B25E41D69BA690005D4A6 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0B25E21D69BA690005D4A6 /* SecondViewController.xib */; };
 		5F0B25EC1D69FD0F0005D4A6 /* MemoryTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B25EA1D69FD0F0005D4A6 /* MemoryTestViewController.m */; };
 		5F0B25ED1D69FD0F0005D4A6 /* MemoryTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0B25EB1D69FD0F0005D4A6 /* MemoryTestViewController.xib */; };
+		5FF715C81D8051C400386DC0 /* CHGAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715B71D8051C400386DC0 /* CHGAdView.m */; };
+		5FF715C91D8051C400386DC0 /* CHGGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715BA1D8051C400386DC0 /* CHGGridView.m */; };
+		5FF715CA1D8051C400386DC0 /* CHGGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715BC1D8051C400386DC0 /* CHGGridViewCell.m */; };
+		5FF715CB1D8051C400386DC0 /* CHGMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715BF1D8051C400386DC0 /* CHGMenu.m */; };
+		5FF715CC1D8051C400386DC0 /* CHGTabPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715C21D8051C400386DC0 /* CHGTabPage.m */; };
+		5FF715CD1D8051C400386DC0 /* CHGTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715C41D8051C400386DC0 /* CHGTabView.m */; };
+		5FF715CE1D8051C400386DC0 /* ItemBtnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715C61D8051C400386DC0 /* ItemBtnCell.m */; };
+		5FF715CF1D8051C400386DC0 /* ItemBtnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF715C71D8051C400386DC0 /* ItemBtnCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +77,6 @@
 		0E66C8DF1D76A45200A88FF3 /* Tab11Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tab11Cell.h; sourceTree = "<group>"; };
 		0E66C8E01D76A45200A88FF3 /* Tab11Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tab11Cell.m; sourceTree = "<group>"; };
 		0E66C8E21D76A65400A88FF3 /* Tab11Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tab11Cell.xib; sourceTree = "<group>"; };
-		5F06B8C51D7C74FF00197935 /* CHGGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGGridView.h; sourceTree = "<group>"; };
-		5F06B8C61D7C74FF00197935 /* CHGGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGGridView.m; sourceTree = "<group>"; };
 		5F06B8C91D7C77C700197935 /* NewGridViewTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGridViewTestViewController.h; sourceTree = "<group>"; };
 		5F06B8CA1D7C77C700197935 /* NewGridViewTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGridViewTestViewController.m; sourceTree = "<group>"; };
 		5F0B25481D6973FE0005D4A6 /* CHGMenuSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHGMenuSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,19 +93,6 @@
 		5F0B256F1D6973FF0005D4A6 /* CHGMenuSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CHGMenuSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0B25731D6973FF0005D4A6 /* CHGMenuSampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHGMenuSampleUITests.m; sourceTree = "<group>"; };
 		5F0B25751D6973FF0005D4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F0B25821D69742A0005D4A6 /* CHGAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGAdView.h; sourceTree = "<group>"; };
-		5F0B25831D69742A0005D4A6 /* CHGAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGAdView.m; sourceTree = "<group>"; };
-		5F0B25861D69742A0005D4A6 /* CHGGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGGridViewCell.h; sourceTree = "<group>"; };
-		5F0B25871D69742A0005D4A6 /* CHGGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGGridViewCell.m; sourceTree = "<group>"; };
-		5F0B25881D69742A0005D4A6 /* CHGMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGMenu.h; sourceTree = "<group>"; };
-		5F0B25891D69742A0005D4A6 /* CHGMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGMenu.m; sourceTree = "<group>"; };
-		5F0B258A1D69742A0005D4A6 /* CHGTabPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGTabPage.h; sourceTree = "<group>"; };
-		5F0B258B1D69742A0005D4A6 /* CHGTabPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGTabPage.m; sourceTree = "<group>"; };
-		5F0B258C1D69742A0005D4A6 /* CHGTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGTabView.h; sourceTree = "<group>"; };
-		5F0B258D1D69742A0005D4A6 /* CHGTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGTabView.m; sourceTree = "<group>"; };
-		5F0B258E1D69742A0005D4A6 /* ItemBtnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBtnCell.h; sourceTree = "<group>"; };
-		5F0B258F1D69742A0005D4A6 /* ItemBtnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBtnCell.m; sourceTree = "<group>"; };
-		5F0B25901D69742A0005D4A6 /* ItemBtnCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemBtnCell.xib; sourceTree = "<group>"; };
 		5F0B259A1D6976600005D4A6 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		5F0B259B1D6976600005D4A6 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		5F0B25A51D6980790005D4A6 /* NavCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavCell.h; sourceTree = "<group>"; };
@@ -144,6 +129,21 @@
 		5F0B25E91D69FD0F0005D4A6 /* MemoryTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryTestViewController.h; sourceTree = "<group>"; };
 		5F0B25EA1D69FD0F0005D4A6 /* MemoryTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoryTestViewController.m; sourceTree = "<group>"; };
 		5F0B25EB1D69FD0F0005D4A6 /* MemoryTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoryTestViewController.xib; sourceTree = "<group>"; };
+		5FF715B61D8051C400386DC0 /* CHGAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGAdView.h; sourceTree = "<group>"; };
+		5FF715B71D8051C400386DC0 /* CHGAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGAdView.m; sourceTree = "<group>"; };
+		5FF715B91D8051C400386DC0 /* CHGGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGGridView.h; sourceTree = "<group>"; };
+		5FF715BA1D8051C400386DC0 /* CHGGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGGridView.m; sourceTree = "<group>"; };
+		5FF715BB1D8051C400386DC0 /* CHGGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGGridViewCell.h; sourceTree = "<group>"; };
+		5FF715BC1D8051C400386DC0 /* CHGGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGGridViewCell.m; sourceTree = "<group>"; };
+		5FF715BE1D8051C400386DC0 /* CHGMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGMenu.h; sourceTree = "<group>"; };
+		5FF715BF1D8051C400386DC0 /* CHGMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGMenu.m; sourceTree = "<group>"; };
+		5FF715C11D8051C400386DC0 /* CHGTabPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGTabPage.h; sourceTree = "<group>"; };
+		5FF715C21D8051C400386DC0 /* CHGTabPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGTabPage.m; sourceTree = "<group>"; };
+		5FF715C31D8051C400386DC0 /* CHGTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGTabView.h; sourceTree = "<group>"; };
+		5FF715C41D8051C400386DC0 /* CHGTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGTabView.m; sourceTree = "<group>"; };
+		5FF715C51D8051C400386DC0 /* ItemBtnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBtnCell.h; sourceTree = "<group>"; };
+		5FF715C61D8051C400386DC0 /* ItemBtnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBtnCell.m; sourceTree = "<group>"; };
+		5FF715C71D8051C400386DC0 /* ItemBtnCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemBtnCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +204,7 @@
 		5F0B253F1D6973FE0005D4A6 = {
 			isa = PBXGroup;
 			children = (
-				5F0B25811D6974080005D4A6 /* CHGGridView */,
+				5FF715B41D8051C400386DC0 /* CHGGridView */,
 				5F0B254A1D6973FE0005D4A6 /* CHGMenuSample */,
 				5F0B25671D6973FF0005D4A6 /* CHGMenuSampleTests */,
 				5F0B25721D6973FF0005D4A6 /* CHGMenuSampleUITests */,
@@ -270,20 +270,6 @@
 				5F0B25751D6973FF0005D4A6 /* Info.plist */,
 			);
 			path = CHGMenuSampleUITests;
-			sourceTree = "<group>";
-		};
-		5F0B25811D6974080005D4A6 /* CHGGridView */ = {
-			isa = PBXGroup;
-			children = (
-				5F0B25E71D69BF040005D4A6 /* CHGTabPage */,
-				5F0B25E61D69BEF00005D4A6 /* CHGMenu */,
-				5F0B25E51D69BEC60005D4A6 /* CHGAdView */,
-				5F0B25861D69742A0005D4A6 /* CHGGridViewCell.h */,
-				5F0B25871D69742A0005D4A6 /* CHGGridViewCell.m */,
-				5F06B8C51D7C74FF00197935 /* CHGGridView.h */,
-				5F06B8C61D7C74FF00197935 /* CHGGridView.m */,
-			);
-			name = CHGGridView;
 			sourceTree = "<group>";
 		};
 		5F0B25991D6976320005D4A6 /* navigation */ = {
@@ -360,38 +346,6 @@
 			name = page;
 			sourceTree = "<group>";
 		};
-		5F0B25E51D69BEC60005D4A6 /* CHGAdView */ = {
-			isa = PBXGroup;
-			children = (
-				5F0B25821D69742A0005D4A6 /* CHGAdView.h */,
-				5F0B25831D69742A0005D4A6 /* CHGAdView.m */,
-			);
-			name = CHGAdView;
-			sourceTree = "<group>";
-		};
-		5F0B25E61D69BEF00005D4A6 /* CHGMenu */ = {
-			isa = PBXGroup;
-			children = (
-				5F0B25881D69742A0005D4A6 /* CHGMenu.h */,
-				5F0B25891D69742A0005D4A6 /* CHGMenu.m */,
-			);
-			name = CHGMenu;
-			sourceTree = "<group>";
-		};
-		5F0B25E71D69BF040005D4A6 /* CHGTabPage */ = {
-			isa = PBXGroup;
-			children = (
-				5F0B258A1D69742A0005D4A6 /* CHGTabPage.h */,
-				5F0B258B1D69742A0005D4A6 /* CHGTabPage.m */,
-				5F0B258C1D69742A0005D4A6 /* CHGTabView.h */,
-				5F0B258D1D69742A0005D4A6 /* CHGTabView.m */,
-				5F0B258E1D69742A0005D4A6 /* ItemBtnCell.h */,
-				5F0B258F1D69742A0005D4A6 /* ItemBtnCell.m */,
-				5F0B25901D69742A0005D4A6 /* ItemBtnCell.xib */,
-			);
-			name = CHGTabPage;
-			sourceTree = "<group>";
-		};
 		5F0B25E81D69FCDF0005D4A6 /* memoryTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,6 +354,60 @@
 				5F0B25EB1D69FD0F0005D4A6 /* MemoryTestViewController.xib */,
 			);
 			name = memoryTest;
+			sourceTree = "<group>";
+		};
+		5FF715B41D8051C400386DC0 /* CHGGridView */ = {
+			isa = PBXGroup;
+			children = (
+				5FF715B51D8051C400386DC0 /* CHGAdview */,
+				5FF715B81D8051C400386DC0 /* CHGGridViewBase */,
+				5FF715BD1D8051C400386DC0 /* CHGMenu */,
+				5FF715C01D8051C400386DC0 /* CHGTabPage */,
+			);
+			path = CHGGridView;
+			sourceTree = "<group>";
+		};
+		5FF715B51D8051C400386DC0 /* CHGAdview */ = {
+			isa = PBXGroup;
+			children = (
+				5FF715B61D8051C400386DC0 /* CHGAdView.h */,
+				5FF715B71D8051C400386DC0 /* CHGAdView.m */,
+			);
+			path = CHGAdview;
+			sourceTree = "<group>";
+		};
+		5FF715B81D8051C400386DC0 /* CHGGridViewBase */ = {
+			isa = PBXGroup;
+			children = (
+				5FF715B91D8051C400386DC0 /* CHGGridView.h */,
+				5FF715BA1D8051C400386DC0 /* CHGGridView.m */,
+				5FF715BB1D8051C400386DC0 /* CHGGridViewCell.h */,
+				5FF715BC1D8051C400386DC0 /* CHGGridViewCell.m */,
+			);
+			path = CHGGridViewBase;
+			sourceTree = "<group>";
+		};
+		5FF715BD1D8051C400386DC0 /* CHGMenu */ = {
+			isa = PBXGroup;
+			children = (
+				5FF715BE1D8051C400386DC0 /* CHGMenu.h */,
+				5FF715BF1D8051C400386DC0 /* CHGMenu.m */,
+			);
+			path = CHGMenu;
+			sourceTree = "<group>";
+		};
+		5FF715C01D8051C400386DC0 /* CHGTabPage */ = {
+			isa = PBXGroup;
+			children = (
+				5FF715C11D8051C400386DC0 /* CHGTabPage.h */,
+				5FF715C21D8051C400386DC0 /* CHGTabPage.m */,
+				5FF715C31D8051C400386DC0 /* CHGTabView.h */,
+				5FF715C41D8051C400386DC0 /* CHGTabView.m */,
+				5FF715C51D8051C400386DC0 /* ItemBtnCell.h */,
+				5FF715C61D8051C400386DC0 /* ItemBtnCell.m */,
+				5FF715C71D8051C400386DC0 /* ItemBtnCell.xib */,
+			);
+			path = CHGTabPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,6 +516,7 @@
 			files = (
 				5F0B25BF1D698CE10005D4A6 /* MenuTableViewController.xib in Resources */,
 				5F0B25AE1D6983B60005D4A6 /* CHGNavigationViewController.xib in Resources */,
+				5FF715CF1D8051C400386DC0 /* ItemBtnCell.xib in Resources */,
 				5F0B255E1D6973FE0005D4A6 /* LaunchScreen.storyboard in Resources */,
 				0E66C8DC1D768ACD00A88FF3 /* Tab2TestViewController.xib in Resources */,
 				5F0B25ED1D69FD0F0005D4A6 /* MemoryTestViewController.xib in Resources */,
@@ -522,7 +531,6 @@
 				0E66C8E31D76A65400A88FF3 /* Tab11Cell.xib in Resources */,
 				5F0B255B1D6973FE0005D4A6 /* Assets.xcassets in Resources */,
 				5F0B25B91D6987EE0005D4A6 /* AdCell.xib in Resources */,
-				5F0B25981D69742A0005D4A6 /* ItemBtnCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,27 +558,27 @@
 				5F06B8CB1D7C77C700197935 /* NewGridViewTestViewController.m in Sources */,
 				5F0B25BE1D698CE10005D4A6 /* MenuTableViewController.m in Sources */,
 				5F0B259C1D6976600005D4A6 /* TableViewController.m in Sources */,
-				5F0B25931D69742A0005D4A6 /* CHGGridViewCell.m in Sources */,
 				5F0B25E31D69BA690005D4A6 /* SecondViewController.m in Sources */,
-				5F0B25971D69742A0005D4A6 /* ItemBtnCell.m in Sources */,
 				5F0B25A71D6980790005D4A6 /* NavCell.m in Sources */,
+				5FF715C81D8051C400386DC0 /* CHGAdView.m in Sources */,
 				5F0B25CE1D69964A0005D4A6 /* Tab1ViewController.m in Sources */,
+				5FF715CB1D8051C400386DC0 /* CHGMenu.m in Sources */,
 				5F0B25D21D699EEF0005D4A6 /* Tab1BtnCell.m in Sources */,
 				5F0B25C21D698D000005D4A6 /* MenuItemCell.m in Sources */,
-				5F0B25961D69742A0005D4A6 /* CHGTabView.m in Sources */,
+				5FF715CE1D8051C400386DC0 /* ItemBtnCell.m in Sources */,
 				5F0B25AD1D6983B60005D4A6 /* CHGNavigationViewController.m in Sources */,
+				5FF715CD1D8051C400386DC0 /* CHGTabView.m in Sources */,
 				0E66C8DB1D768ACD00A88FF3 /* Tab2TestViewController.m in Sources */,
-				5F0B25941D69742A0005D4A6 /* CHGMenu.m in Sources */,
+				5FF715C91D8051C400386DC0 /* CHGGridView.m in Sources */,
 				5F0B25B71D6987DC0005D4A6 /* AdCell.m in Sources */,
 				0E66C8E11D76A45200A88FF3 /* Tab11Cell.m in Sources */,
 				5F0B25D81D69A2AE0005D4A6 /* TableViewCell.m in Sources */,
+				5FF715CA1D8051C400386DC0 /* CHGGridViewCell.m in Sources */,
+				5FF715CC1D8051C400386DC0 /* CHGTabPage.m in Sources */,
 				5F0B25501D6973FE0005D4A6 /* AppDelegate.m in Sources */,
 				5F0B25B31D6986E20005D4A6 /* AdModeTableViewController.m in Sources */,
 				5F0B254D1D6973FE0005D4A6 /* main.m in Sources */,
 				5F0B25591D6973FE0005D4A6 /* CHGMenuSample.xcdatamodeld in Sources */,
-				5F0B25951D69742A0005D4A6 /* CHGTabPage.m in Sources */,
-				5F0B25911D69742A0005D4A6 /* CHGAdView.m in Sources */,
-				5F06B8C71D7C74FF00197935 /* CHGGridView.m in Sources */,
 				5F0B25EC1D69FD0F0005D4A6 /* MemoryTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -708,7 +716,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CHGMenuSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chg.qiche;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chg.qiche-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -722,7 +730,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CHGMenuSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chg.qiche;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chg.qiche-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

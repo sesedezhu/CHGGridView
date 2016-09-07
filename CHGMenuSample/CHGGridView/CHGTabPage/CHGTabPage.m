@@ -122,7 +122,7 @@
         _tabView.frame = CGRectMake(0, self.frame.size.height - sliderHeight, self.frame.size.width, sliderHeight);
         _gridView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - sliderHeight);
     }
-    NSLog(@"%@",_tabView);
+//    NSLog(@"%@",_tabView);
 }
 
 -(void)didMoveToSuperview{
