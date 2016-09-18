@@ -13,13 +13,14 @@
 @implementation CHGGridView{
     NSInteger scrollEndBeforePage;///滑动结束之前所在的页面
     BOOL isPerformDisappearGridViewCells;//在一次拖动中是否执行了GridViewCell的willDisappear的方法
-//    BOOL manualStartSliding;//手动出发view滑动
+    BOOL isRegisterNib;//是否注册了Nib文件
 }
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
+        
     }
     return self;
 }
@@ -40,6 +41,19 @@
     return page;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        self.pagingEnabled = YES;
+        self.showsHorizontalScrollIndicator = NO;
+        self.showsVerticalScrollIndicator = NO;
+        self.delegate = self;
+        _curryPage = 0;
+    }
+    return self;
+}
+
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
@@ -53,17 +67,14 @@
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-//    if (manualStartSliding) {
-        if ([keyPath isEqualToString:@"contentOffset"]) {
-            int f = self.contentOffset.x;
-            int w = self.frame.size.width;
-            if (f % w == 0) {
-                [self scrollViewDidEndDecelerating:self];
-                [self removeObserver:self forKeyPath:@"contentOffset"];
-            }
+    if ([keyPath isEqualToString:@"contentOffset"]) {
+        int f = self.contentOffset.x;
+        int w = self.frame.size.width;
+        if (f % w == 0) {
+            [self scrollViewDidEndDecelerating:self];
+            [self removeObserver:self forKeyPath:@"contentOffset"];
         }
-//    }
-    
+    }
 }
 
 
@@ -151,6 +162,7 @@
 
 ///注册Cell的nib文件
 -(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier{
+    isRegisterNib = YES;
     if (_identifiersDic == nil) {
         _identifiersDic = [[NSMutableDictionary alloc] init];
     }
@@ -164,11 +176,9 @@
     NSArray * cells = [_queue objectForKey:identifier];
     if (cells != nil) {
         if (_curryPage % 2 == 0) {//如果是偶数页面
-//            NSLog(@"当前获取数据：%li",position % _maxCellOfPage + _maxCellOfPage);
             CHGGridViewCell * cell = cells[position % _maxCellOfPage + _maxCellOfPage];
             return cell;
         } else {//如果是奇数页面
-//            NSLog(@"当前获取数据：%li",position % _maxCellOfPage);
             CHGGridViewCell * cell = cells[position % _maxCellOfPage];
             return cell;
         }
@@ -235,17 +245,15 @@
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-///以下2个方法暂时注释
+    //    NSLog(@"滑动结束");
     [self performDidDisappearGridViewCells];
     [self performDidAppearGridViewCells];
     _isCreate = NO;
-//    NSLog(@"滑动结束");
     scrollEndBeforePage = _curryPage;
     _scrollStatus = CHGGridViewScrollStatusDefault;
     [_gridViewScrollDelegate gridViewDidEndDecelerating:scrollView];
     isPerformDisappearGridViewCells = NO;
     [self createCellsOfPage:_curryPage fromInit:YES];
-//    manualStartSliding = NO;
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -282,7 +290,6 @@
 
 -(void)scrollRectToVisible:(CGRect)rect animated:(BOOL)animated{
     [super scrollRectToVisible:rect animated:animated];
-//    manualStartSliding = YES;
     [self addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
     isPerformDisappearGridViewCells = NO;
     scrollEndBeforePage = _curryPage;

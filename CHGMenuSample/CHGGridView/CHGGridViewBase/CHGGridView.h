@@ -58,14 +58,11 @@ typedef NS_ENUM(NSUInteger, CHGGridViewScrollStatus) {
 
 @interface CHGGridView : UIScrollView<UIScrollViewDelegate>
 
-//@property(nonatomic,assign) NSInteger curryShowPage;///当前显示的页面
 @property(nonatomic,assign) NSInteger row;//numberOfRowInPage;//一页中最多存在的cell数量
 @property(nonatomic,assign) NSInteger column;//numberOfColumInPage;//一页中最多存在的行数
 @property(nonatomic,assign) CGFloat cellHeight;//cell的高度
 @property(nonatomic,assign) CGFloat cellWidth;//cell的宽度
-//@property(nonatomic,assign) NSInteger curryClumns;//当前创建的列
 @property(nonatomic,assign) NSInteger curryPage;//当前创建的page
-//@property(nonatomic,strong) NSMutableArray * cells;
 @property(nonatomic,weak) id<CHGGridViewDatasource> gridViewDatasource;
 @property(nonatomic,weak) id<CHGGridViewDelegate> gridViewDelegate;
 @property(nonatomic,weak) id<CHGGridViewScrollDelegate> gridViewScrollDelegate;
@@ -73,16 +70,12 @@ typedef NS_ENUM(NSUInteger, CHGGridViewScrollStatus) {
 @property(nonatomic,assign) NSInteger maxCellOfPage;//一页最多能显示的cell的数量
 @property(nonatomic,assign) NSInteger maxPage;///一共有几页
 
-
-
 @property(nonatomic,assign) CGFloat lastScrollDownX;//上一次按下的位置
 @property(nonatomic,assign) CGFloat scrollStartX;///第一次(开始)滑动的位置
 @property(nonatomic,assign) BOOL isDragging;// 手指拖动中
 @property(nonatomic,assign) BOOL isCreate;// 是否已经创建
 @property(nonatomic,assign) CHGGridViewScrollStatus scrollStatus;
 @property(nonatomic,strong)NSMutableDictionary * identifiersDic; ///保存identifier  所有注册的cell 类
-
-
 @property(nonatomic,strong) NSMutableDictionary * queue;///存放所有cell对象的字典，字典通过identifier获取CHGGridViewCell数组
 
 -(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier;

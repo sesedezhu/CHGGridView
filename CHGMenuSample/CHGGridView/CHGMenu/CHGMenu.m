@@ -52,7 +52,6 @@
     [self addSubview:_pageControl];
     
     self.gridView = [[CHGGridView alloc] init];
-//    _gridView.delegate = self;
     _gridView.gridViewScrollDelegate = self;
     [self addSubview:_gridView];
     self.backgroundColor = [UIColor whiteColor];
@@ -100,26 +99,6 @@
     _pageControl.hidden = !showPageControl;
     self.gridView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
 }
-
-//-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-//    
-//}
-//
-//-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-//    
-//}
-//
-//-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    
-//}
-//
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    CGFloat page = scrollView.contentOffset.x / self.frame.size.width;
-//    _pageControl.currentPage = lroundf(page);
-//    currPage = _pageControl.currentPage;
-//}
-
-
 
 -(void)gridViewWillBeginDragging:(UIScrollView *)scrollView{
     
