@@ -64,5 +64,8 @@ typedef NS_ENUM(NSInteger,CHGTabViewLocation){
 @property(nonatomic,strong) UIView * rightView;                         ///右边试图
 
 -(void)reloadData;
+-(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier;
+///通过标识符获取cell
+-(CHGGridViewCell*)dequeueReusableCellWithIdentifier:(NSString*)identifier  withPosition:(NSInteger)position;
 
 @end

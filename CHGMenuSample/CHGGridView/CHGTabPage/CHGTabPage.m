@@ -46,14 +46,16 @@
     return self;
 }
 
+-(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier {
+    [_gridView registerNibName:nib forCellReuseIdentifier:identifier];
+}
+///通过标识符获取cell
+-(CHGGridViewCell*)dequeueReusableCellWithIdentifier:(NSString*)identifier  withPosition:(NSInteger)position {
+    return [_gridView dequeueReusableCellWithIdentifier:identifier withPosition:position];
+}
+
 -(void)reloadData{
     [_gridView reloadData];
-//    NSArray * views = [self subviews];
-//    for (UIView * view in views) {
-//        [view removeFromSuperview];
-//    }
-//    [self createView];
-    
 }
 
 -(void)createView{

@@ -205,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF715B41D8051C400386DC0 /* CHGGridView */,
-				5F0B254A1D6973FE0005D4A6 /* CHGMenuSample */,
+				5F0B254A1D6973FE0005D4A6 /* Sample */,
 				5F0B25671D6973FF0005D4A6 /* CHGMenuSampleTests */,
 				5F0B25721D6973FF0005D4A6 /* CHGMenuSampleUITests */,
 				5F0B25491D6973FE0005D4A6 /* Products */,
@@ -222,7 +222,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5F0B254A1D6973FE0005D4A6 /* CHGMenuSample */ = {
+		5F0B254A1D6973FE0005D4A6 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
 				5F06B8C81D7C779A00197935 /* newGridView */,
@@ -242,6 +242,7 @@
 				5F0B25571D6973FE0005D4A6 /* CHGMenuSample.xcdatamodeld */,
 				5F0B254B1D6973FE0005D4A6 /* Supporting Files */,
 			);
+			name = Sample;
 			path = CHGMenuSample;
 			sourceTree = "<group>";
 		};
@@ -477,7 +478,7 @@
 				TargetAttributes = {
 					5F0B25471D6973FE0005D4A6 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = MWNJKY7CNW;
+						DevelopmentTeam = NNLNXN4V35;
 					};
 					5F0B25631D6973FF0005D4A6 = {
 						CreatedOnToolsVersion = 7.3;
@@ -715,8 +716,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CHGMenuSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.chg.qiche-";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chg.qiche--";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -729,8 +731,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CHGMenuSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.chg.qiche-";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.chg.qiche--";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
