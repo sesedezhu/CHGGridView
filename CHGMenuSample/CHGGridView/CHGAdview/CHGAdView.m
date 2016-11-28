@@ -8,7 +8,9 @@
 
 #import "CHGAdView.h"
 
-@implementation CHGAdView
+@implementation CHGAdView {
+    BOOL isFinishd;
+}
 
 @synthesize chgMenu = _chgMenu;
 @synthesize data = _data;
@@ -36,6 +38,13 @@
     if (_isTimerShow && _isCycleShow) {
         [self startTimerShow];
     }
+    
+    
+    //    if (_isCycleShow) {
+    //
+    //
+    //    }
+    //    [_chgMenu.gridView scrollRectToVisible:CGRectMake(_chgMenu.gridView.frame.size.width, 0, _chgMenu.gridView.frame.size.width, _chgMenu.gridView.frame.size.height) animated:NO];
 }
 
 -(void)reloadData{
@@ -56,10 +65,10 @@
         [_timer invalidate];
     }
     self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0
-                                     target:self
-                                   selector:@selector(adveritisementScroll)
-                                   userInfo:nil
-                                    repeats:YES];
+                                                  target:self
+                                                selector:@selector(adveritisementScroll)
+                                                userInfo:nil
+                                                 repeats:YES];
 }
 
 
@@ -116,7 +125,8 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    if (_isCycleShow) {
+    if (_isCycleShow && !isFinishd) {
+        isFinishd = YES;
         [_chgMenu.gridView scrollRectToVisible:CGRectMake(_chgMenu.gridView.frame.size.width, 0, _chgMenu.gridView.frame.size.width, _chgMenu.gridView.frame.size.height) animated:NO];
     }
 }

@@ -8,6 +8,7 @@
 
 #import "CHGNavigationViewController.h"
 #import "NavCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface CHGNavigationViewController ()
 
@@ -19,7 +20,9 @@
     [super viewDidLoad];
     
     self.adView = [[CHGAdView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    _adView.data = @[@"nav1",@"nav2",@"nav3"];
+    _adView.data = @[@"http://ww1.sinaimg.cn/large/7efb7362jw1e3rgypjtzvj.jpg",
+                     @"http://img.3366.com/fileupload/img/commmanage/151/6780_1.jpg",
+                     @"http://pic1.nipic.com/2008-11-05/2008115214135913_2.jpg"];
     _adView.isCycleShow = NO;//是否循环显示
     _adView.isTimerShow = NO;//是否启用定时切换
     _adView.isShowPageControll = YES;//是否显示pageControll
@@ -38,7 +41,8 @@
 -(CHGGridViewCell*)adView:(id)adView itemAtIndex:(NSInteger) position withData:(NSDictionary*)data{
 //    NavCell * cell = [NavCell initWithNibName:@"NavCell"];
     NavCell * cell = (NavCell*)[((CHGAdView*)adView).chgMenu.gridView dequeueReusableCellWithIdentifier:@"NavCell" withPosition:position];
-    cell.image.image = [UIImage imageNamed:(NSString*)data];
+//    cell.image.image = [UIImage imageNamed:(NSString*)data];
+    [cell.image setImageWithURL:[NSURL URLWithString:(NSString*)data]];
     cell.btn.hidden = position != 2;
     cell.click = ^(){
         [self.navigationController popViewControllerAnimated:YES];

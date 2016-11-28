@@ -89,6 +89,7 @@
         _maxPage = [self getTotailPageWithTotalColumn:_column andRow:_row andTotalItem:_items.count];
         [self createAllRegisterCellType];
         [self createCellsOfPage:0 fromInit:YES];
+        NSLog(@"计算宽度：%f",self.frame.size.width * _maxPage);
         self.contentSize = CGSizeMake(self.frame.size.width * _maxPage, 1);
     }
 }
@@ -119,7 +120,7 @@
 ///通过nib 和 identifier创建2页数量的cell
 -(void)createSomeCellWithNib:(NSString*)nib withCellReuseIdentifier:(NSString*)identifier{
     NSMutableArray * cells = [[NSMutableArray alloc] init];
-    for (int i=0; i<2; i++) {///创建2页数据
+    for (int i=0; i<3; i++) {///创建2页数据
         for (int j=0; j<_maxCellOfPage; j++) {
             [cells addObject:[CHGGridViewCell initWithNibName:nib]];
         }
@@ -171,17 +172,33 @@
         self.queue = [[NSMutableDictionary alloc] init];
     }
 }
-///通过标识符获取cell
+///通过标识符以及当前position获取cell
 -(CHGGridViewCell*)dequeueReusableCellWithIdentifier:(NSString*)identifier withPosition:(NSInteger)position{
     NSArray * cells = [_queue objectForKey:identifier];
     if (cells != nil) {
-        if (_curryPage % 2 == 0) {//如果是偶数页面
-            CHGGridViewCell * cell = cells[position % _maxCellOfPage + _maxCellOfPage];
-            return cell;
-        } else {//如果是奇数页面
-            CHGGridViewCell * cell = cells[position % _maxCellOfPage];
-            return cell;
-        }
+//        if (_curryPage % 2 == 0) {//如果是偶数页面
+//            NSLog(@"偶数也：%li",position % _maxCellOfPage + _maxCellOfPage);
+//            CHGGridViewCell * cell = cells[position % _maxCellOfPage + _maxCellOfPage];
+//            return cell;
+//        } else {//如果是奇数页面
+//            NSLog(@"偶数也：%li",position % _maxCellOfPage + _maxCellOfPage);
+//            CHGGridViewCell * cell = cells[position % _maxCellOfPage];
+//            return cell;
+//        }
+        
+        NSInteger p = _curryPage % 3;
+//        if (p == 0) {
+////            NSLog(@"0..：%li",position % _maxCellOfPage + _maxCellOfPage * 2);
+//            return cells[position % _maxCellOfPage + _maxCellOfPage * 2];
+//        } else if(p == 1){
+////            NSLog(@"1..：%li",position % _maxCellOfPage  + _maxCellOfPage * 1);
+//            return cells[position % _maxCellOfPage  + _maxCellOfPage * 1];
+//        } else if(p == 2){
+////            NSLog(@"2..：%li",position % _maxCellOfPage  + _maxCellOfPage * 0);
+//            return cells[position % _maxCellOfPage  + _maxCellOfPage * 0];
+//        }
+        
+        return cells[position % _maxCellOfPage  + _maxCellOfPage * (2 - p)];
     }
     return nil;
 }
@@ -229,7 +246,7 @@
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-//    NSLog(@"将要滑动");
+//    NSLog(@"将要滑动:%f",scrollView.contentOffset.x);
     isPerformDisappearGridViewCells = NO;
     scrollEndBeforePage = _curryPage;
     _isDragging = YES;
@@ -240,12 +257,13 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     _isDragging = NO;
-//    NSLog(@"手指结束拖动");
+    
+    NSLog(@"手指结束拖动:%f",scrollView.contentSize.width);
     [_gridViewScrollDelegate gridViewDidEndDragging:scrollView willDecelerate:decelerate];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    //    NSLog(@"滑动结束");
+//        NSLog(@"滑动结束:%f",scrollView.contentOffset.x);
     [self performDidDisappearGridViewCells];
     [self performDidAppearGridViewCells];
     _isCreate = NO;
@@ -259,6 +277,7 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [_gridViewScrollDelegate gridViewDidScroll:scrollView];
     CGFloat currX = scrollView.contentOffset.x;
+//        NSLog(@"开始华东:%f",scrollView.contentOffset.x);
     if (currX > _lastScrollDownX) {
 //        NSLog(@"向左滑动");
         _scrollStatus = CHGGridViewScrollStatusLeft;
