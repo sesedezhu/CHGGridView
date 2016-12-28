@@ -21,7 +21,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        NSLog(@"CHGTabView   initWithFrame");
+        //        NSLog(@"CHGTabView   initWithFrame");
         _currSelected = 0;
         self.slideIndicator = [[UIView alloc] init];
         self.backgroundColor = [UIColor whiteColor];
@@ -33,7 +33,7 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
-//        NSLog(@"CHGTabView   init");
+        //        NSLog(@"CHGTabView   init");
     }
     return self;
 }
@@ -59,8 +59,8 @@
     }
     //判断滑块的位置
     _slideIndicator.frame = _itemBtnCellLocation == CHGTabViewItemBtnCellLocationTop ?
-                            CGRectMake(0, 0, itemWidth, indicatorHeight) :
-                            CGRectMake(0, itemHeight - indicatorHeight, itemWidth, indicatorHeight);
+    CGRectMake(0, 0, itemWidth, indicatorHeight) :
+    CGRectMake(0, itemHeight - indicatorHeight, itemWidth, indicatorHeight);
     [self addSubview:_slideIndicator];
 }
 

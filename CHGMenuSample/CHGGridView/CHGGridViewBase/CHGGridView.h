@@ -78,6 +78,8 @@ typedef NS_ENUM(NSUInteger, CHGGridViewScrollStatus) {
 @property(nonatomic,strong)NSMutableDictionary * identifiersDic; ///保存identifier  所有注册的cell 类
 @property(nonatomic,strong) NSMutableDictionary * queue;///存放所有cell对象的字典，字典通过identifier获取CHGGridViewCell数组
 
+@property(nonatomic,assign) NSInteger cacheCountPage;///缓存页数
+
 -(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier;
 ///通过标识符获取cell
 -(CHGGridViewCell*)dequeueReusableCellWithIdentifier:(NSString*)identifier withPosition:(NSInteger)position;

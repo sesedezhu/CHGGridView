@@ -45,8 +45,8 @@ typedef NS_ENUM(NSInteger,CHGTabViewLocation){
 @interface CHGTabPage : UIView<CHGGridViewDatasource,CHGTabItemDataSource,CHGGridViewScrollDelegate>{
     CGFloat  lastX;
     BOOL scrollWithClick;  //标记页面滑动是否为点击触发
-//    UIView * leftView;                          ///左边试图
-//    UIView * rightView;                         ///右边试图
+    //    UIView * leftView;                          ///左边试图
+    //    UIView * rightView;                         ///右边试图
 }
 
 @property(nonatomic,strong) CHGGridView * gridView;
@@ -62,6 +62,8 @@ typedef NS_ENUM(NSInteger,CHGTabViewLocation){
 @property(nonatomic,assign) BOOL useVCMode;                             ///使用controller模式， 实际上不是controller
 @property(nonatomic,strong) UIView * leftView;                          ///左边试图
 @property(nonatomic,strong) UIView * rightView;                         ///右边试图
+
+@property(nonatomic,assign) NSInteger cacheCountPage;
 
 -(void)reloadData;
 -(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier;

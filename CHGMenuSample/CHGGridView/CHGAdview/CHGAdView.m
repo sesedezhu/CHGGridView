@@ -24,6 +24,9 @@
 
 -(void)willMoveToWindow:(UIWindow *)newWindow{
     [super willMoveToWindow:newWindow];
+    if (_data == [NSNull new] || _data == nil || _data.count == 0) {
+        return;
+    }
     if (_isCycleShow) {
         NSMutableArray * dataTemp = [[NSMutableArray alloc] initWithArray:_data];
         [dataTemp insertObject:[_data objectAtIndex:_data.count - 1] atIndex:0];
@@ -38,13 +41,6 @@
     if (_isTimerShow && _isCycleShow) {
         [self startTimerShow];
     }
-    
-    
-    //    if (_isCycleShow) {
-    //
-    //
-    //    }
-    //    [_chgMenu.gridView scrollRectToVisible:CGRectMake(_chgMenu.gridView.frame.size.width, 0, _chgMenu.gridView.frame.size.width, _chgMenu.gridView.frame.size.height) animated:NO];
 }
 
 -(void)reloadData{
@@ -83,6 +79,7 @@
     page++;
     page = page == (_chgMenu.items.count - 2) ? 0 : page;
     _pageControl.currentPage = page;
+    
     [_chgMenu.gridView scrollRectToVisible:CGRectMake(_chgMenu.gridView.frame.size.width*(page+1),0,_chgMenu.gridView.frame.size.width,_chgMenu.gridView.frame.size.height) animated:YES]; // 触摸pagecontroller那个点点 往后翻一页 +1
 }
 
@@ -135,6 +132,7 @@
 -(void)setData:(NSArray *)data{
     refresh = YES;
     _data = data;
+    //    _chgMenu.items = _data;
 }
 
 //返回gridView中的行数
