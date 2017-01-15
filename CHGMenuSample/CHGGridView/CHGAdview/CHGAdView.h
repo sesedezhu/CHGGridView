@@ -34,6 +34,7 @@
 @property(nonatomic,weak)id<AdViewDataSource>  dataSource;
 @property(nonatomic,strong) NSTimer * timer;
 
+
 -(void)reloadData;
 
 -(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier;

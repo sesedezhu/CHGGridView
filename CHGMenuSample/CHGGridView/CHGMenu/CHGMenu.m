@@ -36,6 +36,23 @@
 }
 
 -(void)reloadData{
+    NSInteger column = [_gridViewDatasource numberOfcolumnInRow:self];
+    NSInteger row = [_gridViewDatasource numberOfRowInCHGGridView:self];
+    
+    NSInteger page = 0;
+    if (_items.count % (column * row) == 0) {
+        page = _items.count / (column * row);
+    } else {
+        page = ceil(_items.count / (column * row)) + 1;
+    }
+    self.pageControl.frame = CGRectMake(0, self.frame.size.height-30, self.frame.size.width, 30);
+    self.gridView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - (_showPageControl ? 30 : 0));
+    _gridView.tag = self.tag;
+    
+    _pageControl.numberOfPages = page;
+    _pageControl.currentPage = currPage;
+    _pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
+    _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     [_gridView reloadData];
 }
 

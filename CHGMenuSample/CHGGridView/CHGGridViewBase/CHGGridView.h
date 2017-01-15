@@ -20,6 +20,7 @@
 //返回cell的高度   宽度自动计算，计算方式：屏幕宽度/列数
 -(CGFloat)gridViewHeightForCell:(id)gridView;
 
+
 @optional
 ///创建完毕回调
 -(void)onCreateFinished;
@@ -36,6 +37,8 @@
 -(void)gridViewDidEndDecelerating:(UIScrollView *)scrollView ;
 
 -(void)gridViewDidScroll:(UIScrollView *)scrollView;
+
+- (void)gridViewDidEndScrollingAnimation:(UIScrollView *)scrollView;
 
 @end
 
@@ -77,6 +80,8 @@ typedef NS_ENUM(NSUInteger, CHGGridViewScrollStatus) {
 @property(nonatomic,assign) CHGGridViewScrollStatus scrollStatus;
 @property(nonatomic,strong)NSMutableDictionary * identifiersDic; ///保存identifier  所有注册的cell 类
 @property(nonatomic,strong) NSMutableDictionary * queue;///存放所有cell对象的字典，字典通过identifier获取CHGGridViewCell数组
+
+@property(nonatomic,assign) NSInteger cacheCountPage;///缓存页数
 
 -(void)registerNibName:(NSString*)nib forCellReuseIdentifier:(NSString*)identifier;
 ///通过标识符获取cell
