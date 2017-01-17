@@ -20,7 +20,7 @@
     [self.view addSubview:_adView];
 
 
-    页面启动导航模式 
+    页面启动导航模式 （CHGAdView 导航模式，此模式只需要将isCycleShow、isTimerShow的属性设置为“NO”即可）
     self.adView = [[CHGAdView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _adView.data = @[@"http://ww1.sinaimg.cn/large/7efb7362jw1e3rgypjtzvj.jpg",
     @"http://img.3366.com/fileupload/img/commmanage/151/6780_1.jpg",
