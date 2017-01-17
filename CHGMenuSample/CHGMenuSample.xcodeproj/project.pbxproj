@@ -60,14 +60,14 @@
 		5F4CDBC41D9E955F00394140 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4CDBB11D9E955F00394140 /* UIProgressView+AFNetworking.m */; };
 		5F4CDBC51D9E955F00394140 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4CDBB31D9E955F00394140 /* UIRefreshControl+AFNetworking.m */; };
 		5F4CDBC61D9E955F00394140 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4CDBB51D9E955F00394140 /* UIWebView+AFNetworking.m */; };
-		5FF715C81D8051C400386DC0 /* CHGAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715B71D8051C400386DC0 /* CHGAdView.m */; };
-		5FF715C91D8051C400386DC0 /* CHGGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715BA1D8051C400386DC0 /* CHGGridView.m */; };
-		5FF715CA1D8051C400386DC0 /* CHGGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715BC1D8051C400386DC0 /* CHGGridViewCell.m */; };
-		5FF715CB1D8051C400386DC0 /* CHGMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715BF1D8051C400386DC0 /* CHGMenu.m */; };
-		5FF715CC1D8051C400386DC0 /* CHGTabPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715C21D8051C400386DC0 /* CHGTabPage.m */; };
-		5FF715CD1D8051C400386DC0 /* CHGTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715C41D8051C400386DC0 /* CHGTabView.m */; };
-		5FF715CE1D8051C400386DC0 /* ItemBtnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF715C61D8051C400386DC0 /* ItemBtnCell.m */; };
-		5FF715CF1D8051C400386DC0 /* ItemBtnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF715C71D8051C400386DC0 /* ItemBtnCell.xib */; };
+		5FC8FB2C1E2B8BB6004BF842 /* CHGAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8FB2B1E2B8BB6004BF842 /* CHGAdView.m */; };
+		5FC8FB311E2B8BC3004BF842 /* CHGGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8FB2E1E2B8BC3004BF842 /* CHGGridView.m */; };
+		5FC8FB321E2B8BC3004BF842 /* CHGGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8FB301E2B8BC3004BF842 /* CHGGridViewCell.m */; };
+		5FC8FB351E2B8BD0004BF842 /* CHGMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8FB341E2B8BD0004BF842 /* CHGMenu.m */; };
+		5FC8FB3A1E2B8BE4004BF842 /* CHGTabPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8FB371E2B8BE4004BF842 /* CHGTabPage.m */; };
+		5FC8FB3B1E2B8BE4004BF842 /* CHGTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8FB391E2B8BE4004BF842 /* CHGTabView.m */; };
+		5FC8FB3F1E2B8C2D004BF842 /* ItemBtnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC8FB3D1E2B8C2D004BF842 /* ItemBtnCell.m */; };
+		5FC8FB401E2B8C2D004BF842 /* ItemBtnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FC8FB3E1E2B8C2D004BF842 /* ItemBtnCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,21 +181,21 @@
 		5F4CDBB31D9E955F00394140 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		5F4CDBB41D9E955F00394140 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		5F4CDBB51D9E955F00394140 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		5FF715B61D8051C400386DC0 /* CHGAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGAdView.h; sourceTree = "<group>"; };
-		5FF715B71D8051C400386DC0 /* CHGAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGAdView.m; sourceTree = "<group>"; };
-		5FF715B91D8051C400386DC0 /* CHGGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGGridView.h; sourceTree = "<group>"; };
-		5FF715BA1D8051C400386DC0 /* CHGGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGGridView.m; sourceTree = "<group>"; };
-		5FF715BB1D8051C400386DC0 /* CHGGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGGridViewCell.h; sourceTree = "<group>"; };
-		5FF715BC1D8051C400386DC0 /* CHGGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGGridViewCell.m; sourceTree = "<group>"; };
-		5FF715BE1D8051C400386DC0 /* CHGMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGMenu.h; sourceTree = "<group>"; };
-		5FF715BF1D8051C400386DC0 /* CHGMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGMenu.m; sourceTree = "<group>"; };
-		5FF715C11D8051C400386DC0 /* CHGTabPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGTabPage.h; sourceTree = "<group>"; };
-		5FF715C21D8051C400386DC0 /* CHGTabPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGTabPage.m; sourceTree = "<group>"; };
-		5FF715C31D8051C400386DC0 /* CHGTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGTabView.h; sourceTree = "<group>"; };
-		5FF715C41D8051C400386DC0 /* CHGTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGTabView.m; sourceTree = "<group>"; };
-		5FF715C51D8051C400386DC0 /* ItemBtnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBtnCell.h; sourceTree = "<group>"; };
-		5FF715C61D8051C400386DC0 /* ItemBtnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBtnCell.m; sourceTree = "<group>"; };
-		5FF715C71D8051C400386DC0 /* ItemBtnCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemBtnCell.xib; sourceTree = "<group>"; };
+		5FC8FB2A1E2B8BB6004BF842 /* CHGAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGAdView.h; sourceTree = "<group>"; };
+		5FC8FB2B1E2B8BB6004BF842 /* CHGAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGAdView.m; sourceTree = "<group>"; };
+		5FC8FB2D1E2B8BC3004BF842 /* CHGGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGGridView.h; sourceTree = "<group>"; };
+		5FC8FB2E1E2B8BC3004BF842 /* CHGGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGGridView.m; sourceTree = "<group>"; };
+		5FC8FB2F1E2B8BC3004BF842 /* CHGGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGGridViewCell.h; sourceTree = "<group>"; };
+		5FC8FB301E2B8BC3004BF842 /* CHGGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGGridViewCell.m; sourceTree = "<group>"; };
+		5FC8FB331E2B8BD0004BF842 /* CHGMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGMenu.h; sourceTree = "<group>"; };
+		5FC8FB341E2B8BD0004BF842 /* CHGMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGMenu.m; sourceTree = "<group>"; };
+		5FC8FB361E2B8BE4004BF842 /* CHGTabPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGTabPage.h; sourceTree = "<group>"; };
+		5FC8FB371E2B8BE4004BF842 /* CHGTabPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGTabPage.m; sourceTree = "<group>"; };
+		5FC8FB381E2B8BE4004BF842 /* CHGTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGTabView.h; sourceTree = "<group>"; };
+		5FC8FB391E2B8BE4004BF842 /* CHGTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGTabView.m; sourceTree = "<group>"; };
+		5FC8FB3C1E2B8C2D004BF842 /* ItemBtnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBtnCell.h; sourceTree = "<group>"; };
+		5FC8FB3D1E2B8C2D004BF842 /* ItemBtnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBtnCell.m; sourceTree = "<group>"; };
+		5FC8FB3E1E2B8C2D004BF842 /* ItemBtnCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemBtnCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,8 +482,8 @@
 		5FF715B51D8051C400386DC0 /* CHGAdview */ = {
 			isa = PBXGroup;
 			children = (
-				5FF715B61D8051C400386DC0 /* CHGAdView.h */,
-				5FF715B71D8051C400386DC0 /* CHGAdView.m */,
+				5FC8FB2A1E2B8BB6004BF842 /* CHGAdView.h */,
+				5FC8FB2B1E2B8BB6004BF842 /* CHGAdView.m */,
 			);
 			path = CHGAdview;
 			sourceTree = "<group>";
@@ -491,10 +491,10 @@
 		5FF715B81D8051C400386DC0 /* CHGGridViewBase */ = {
 			isa = PBXGroup;
 			children = (
-				5FF715B91D8051C400386DC0 /* CHGGridView.h */,
-				5FF715BA1D8051C400386DC0 /* CHGGridView.m */,
-				5FF715BB1D8051C400386DC0 /* CHGGridViewCell.h */,
-				5FF715BC1D8051C400386DC0 /* CHGGridViewCell.m */,
+				5FC8FB2D1E2B8BC3004BF842 /* CHGGridView.h */,
+				5FC8FB2E1E2B8BC3004BF842 /* CHGGridView.m */,
+				5FC8FB2F1E2B8BC3004BF842 /* CHGGridViewCell.h */,
+				5FC8FB301E2B8BC3004BF842 /* CHGGridViewCell.m */,
 			);
 			path = CHGGridViewBase;
 			sourceTree = "<group>";
@@ -502,8 +502,8 @@
 		5FF715BD1D8051C400386DC0 /* CHGMenu */ = {
 			isa = PBXGroup;
 			children = (
-				5FF715BE1D8051C400386DC0 /* CHGMenu.h */,
-				5FF715BF1D8051C400386DC0 /* CHGMenu.m */,
+				5FC8FB331E2B8BD0004BF842 /* CHGMenu.h */,
+				5FC8FB341E2B8BD0004BF842 /* CHGMenu.m */,
 			);
 			path = CHGMenu;
 			sourceTree = "<group>";
@@ -511,13 +511,13 @@
 		5FF715C01D8051C400386DC0 /* CHGTabPage */ = {
 			isa = PBXGroup;
 			children = (
-				5FF715C11D8051C400386DC0 /* CHGTabPage.h */,
-				5FF715C21D8051C400386DC0 /* CHGTabPage.m */,
-				5FF715C31D8051C400386DC0 /* CHGTabView.h */,
-				5FF715C41D8051C400386DC0 /* CHGTabView.m */,
-				5FF715C51D8051C400386DC0 /* ItemBtnCell.h */,
-				5FF715C61D8051C400386DC0 /* ItemBtnCell.m */,
-				5FF715C71D8051C400386DC0 /* ItemBtnCell.xib */,
+				5FC8FB361E2B8BE4004BF842 /* CHGTabPage.h */,
+				5FC8FB371E2B8BE4004BF842 /* CHGTabPage.m */,
+				5FC8FB381E2B8BE4004BF842 /* CHGTabView.h */,
+				5FC8FB391E2B8BE4004BF842 /* CHGTabView.m */,
+				5FC8FB3C1E2B8C2D004BF842 /* ItemBtnCell.h */,
+				5FC8FB3D1E2B8C2D004BF842 /* ItemBtnCell.m */,
+				5FC8FB3E1E2B8C2D004BF842 /* ItemBtnCell.xib */,
 			);
 			path = CHGTabPage;
 			sourceTree = "<group>";
@@ -628,10 +628,10 @@
 			files = (
 				5F0B25BF1D698CE10005D4A6 /* MenuTableViewController.xib in Resources */,
 				5F0B25AE1D6983B60005D4A6 /* CHGNavigationViewController.xib in Resources */,
-				5FF715CF1D8051C400386DC0 /* ItemBtnCell.xib in Resources */,
 				5F0B255E1D6973FE0005D4A6 /* LaunchScreen.storyboard in Resources */,
 				0E66C8DC1D768ACD00A88FF3 /* Tab2TestViewController.xib in Resources */,
 				5F0B25ED1D69FD0F0005D4A6 /* MemoryTestViewController.xib in Resources */,
+				5FC8FB401E2B8C2D004BF842 /* ItemBtnCell.xib in Resources */,
 				5F4CDBBC1D9E955F00394140 /* LICENSE in Resources */,
 				5F0B25A91D6980870005D4A6 /* NavCell.xib in Resources */,
 				5F0B25DA1D69A2B90005D4A6 /* TableViewCell.xib in Resources */,
@@ -671,26 +671,25 @@
 				5F4CDBB81D9E955F00394140 /* AFSecurityPolicy.m in Sources */,
 				5F06B8CB1D7C77C700197935 /* NewGridViewTestViewController.m in Sources */,
 				5F4CDBC51D9E955F00394140 /* UIRefreshControl+AFNetworking.m in Sources */,
+				5FC8FB3B1E2B8BE4004BF842 /* CHGTabView.m in Sources */,
 				5F0B25BE1D698CE10005D4A6 /* MenuTableViewController.m in Sources */,
 				5F4CDBBF1D9E955F00394140 /* AFImageDownloader.m in Sources */,
 				5F0B259C1D6976600005D4A6 /* TableViewController.m in Sources */,
+				5FC8FB3F1E2B8C2D004BF842 /* ItemBtnCell.m in Sources */,
 				5F4CDBBA1D9E955F00394140 /* AFURLResponseSerialization.m in Sources */,
 				5F4CDBC11D9E955F00394140 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				5F0B25E31D69BA690005D4A6 /* SecondViewController.m in Sources */,
 				5F0B25A71D6980790005D4A6 /* NavCell.m in Sources */,
 				5F4CDBC31D9E955F00394140 /* UIImageView+AFNetworking.m in Sources */,
-				5FF715C81D8051C400386DC0 /* CHGAdView.m in Sources */,
 				5F0B25CE1D69964A0005D4A6 /* Tab1ViewController.m in Sources */,
-				5FF715CB1D8051C400386DC0 /* CHGMenu.m in Sources */,
+				5FC8FB321E2B8BC3004BF842 /* CHGGridViewCell.m in Sources */,
 				5F0B25D21D699EEF0005D4A6 /* Tab1BtnCell.m in Sources */,
 				5F0B25C21D698D000005D4A6 /* MenuItemCell.m in Sources */,
-				5FF715CE1D8051C400386DC0 /* ItemBtnCell.m in Sources */,
 				5F4CDBBB1D9E955F00394140 /* AFURLSessionManager.m in Sources */,
 				5F4CDBC61D9E955F00394140 /* UIWebView+AFNetworking.m in Sources */,
 				5F0B25AD1D6983B60005D4A6 /* CHGNavigationViewController.m in Sources */,
-				5FF715CD1D8051C400386DC0 /* CHGTabView.m in Sources */,
 				0E66C8DB1D768ACD00A88FF3 /* Tab2TestViewController.m in Sources */,
-				5FF715C91D8051C400386DC0 /* CHGGridView.m in Sources */,
+				5FC8FB3A1E2B8BE4004BF842 /* CHGTabPage.m in Sources */,
 				5F4CDBC01D9E955F00394140 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				5F0B25B71D6987DC0005D4A6 /* AdCell.m in Sources */,
 				5F4CDBC21D9E955F00394140 /* UIButton+AFNetworking.m in Sources */,
@@ -700,13 +699,14 @@
 				5F4CDBBE1D9E955F00394140 /* AFAutoPurgingImageCache.m in Sources */,
 				5F4CDBB91D9E955F00394140 /* AFURLRequestSerialization.m in Sources */,
 				5F4CDBBD1D9E955F00394140 /* README.md in Sources */,
-				5FF715CA1D8051C400386DC0 /* CHGGridViewCell.m in Sources */,
 				5F4CDBB71D9E955F00394140 /* AFNetworkReachabilityManager.m in Sources */,
-				5FF715CC1D8051C400386DC0 /* CHGTabPage.m in Sources */,
 				5F0B25501D6973FE0005D4A6 /* AppDelegate.m in Sources */,
+				5FC8FB2C1E2B8BB6004BF842 /* CHGAdView.m in Sources */,
 				5F0B25B31D6986E20005D4A6 /* AdModeTableViewController.m in Sources */,
+				5FC8FB311E2B8BC3004BF842 /* CHGGridView.m in Sources */,
 				5F0B254D1D6973FE0005D4A6 /* main.m in Sources */,
 				5F0B25591D6973FE0005D4A6 /* CHGMenuSample.xcdatamodeld in Sources */,
+				5FC8FB351E2B8BD0004BF842 /* CHGMenu.m in Sources */,
 				5F0B25EC1D69FD0F0005D4A6 /* MemoryTestViewController.m in Sources */,
 				5F4CDBB61D9E955F00394140 /* AFHTTPSessionManager.m in Sources */,
 			);

@@ -89,6 +89,7 @@
         _adView.isShowPageControll = YES;//是否显示pageControll
         _adView.dataSource = self;
         [_adView.chgMenu.gridView registerNibName:@"AdCell" forCellReuseIdentifier:@"AdCell"];
+        [_adView reloadData];
         return _adView;
     }
     return nil;

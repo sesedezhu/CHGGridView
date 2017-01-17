@@ -60,6 +60,27 @@
 }
 
 -(void)reloadData{
+    CGFloat sliderHeight = [_tabPageDataSource heightForSliderInTabPage:self];
+    if (_tabViewLoca == locationTop) {
+        if (_useVCMode) {
+            _leftView.frame = CGRectMake(0, 0, 60, sliderHeight);
+            _rightView.frame = CGRectMake(self.frame.size.width - 60, 0, 60, sliderHeight);
+            if ([_tabPageDataSource respondsToSelector:@selector(viewForLeftViewInTabPage:)]) {
+                UIView * leftView = [_tabPageDataSource viewForLeftViewInTabPage:self];
+                [_leftView addSubview:leftView];
+            }
+            if ([_tabPageDataSource respondsToSelector:@selector(viewForRightViewInTabPage:)]) {
+                UIView * rightView = [_tabPageDataSource viewForRightViewInTabPage:self];
+                [_rightView addSubview:rightView];
+            }
+        }
+        _tabView.frame = CGRectMake(_useVCMode ? 60 : 0, 0, self.frame.size.width - (_useVCMode ? 120 : 0), sliderHeight);
+        _gridView.frame = CGRectMake(0, sliderHeight, self.frame.size.width, self.frame.size.height - sliderHeight);
+    } else {
+        _tabView.frame = CGRectMake(0, self.frame.size.height - sliderHeight, self.frame.size.width, sliderHeight);
+        _gridView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - sliderHeight);
+    }
+    
     [_gridView reloadData];
 }
 
