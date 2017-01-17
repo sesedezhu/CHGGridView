@@ -20,18 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
-//    self.adView = [[CHGAdView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 200)];
-//    _adView.data = @[@"http://ww1.sinaimg.cn/large/7efb7362jw1e3rgypjtzvj.jpg",
-//                     @"http://img.3366.com/fileupload/img/commmanage/151/6780_1.jpg",
-//                     @"http://pic1.nipic.com/2008-11-05/2008115214135913_2.jpg"];//[self simulationData];
-//    _adView.isCycleShow = YES;//是否循环显示
-//    _adView.isTimerShow = YES;//是否启用定时切换
-//    _adView.isShowPageControll = YES;//是否显示pageControll
-//    _adView.dataSource = self;
-//    [_adView.chgMenu.gridView registerNibName:@"AdCell" forCellReuseIdentifier:@"AdCell"];
-//    [self.view addSubview:_adView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,17 +30,7 @@
 -(CHGGridViewCell*)adView:(id)adView itemAtIndex:(NSInteger) position withData:(NSDictionary*)data{
     AdCell * cell = (AdCell*)[((CHGAdView*)adView).chgMenu.gridView dequeueReusableCellWithIdentifier:@"AdCell" withPosition:position];
     NSLog(@"%li",position);
-    
-//    cell.image.image = [UIImage imageNamed:[data objectForKey:@"icon"]];
-//    cell.image.image = nil;
-//    [cell.image setImageWithURL:[NSURL URLWithString:@"http://ww1.sinaimg.cn/large/7efb7362jw1e3rgypjtzvj.jpg"]];
     [cell.image setImageWithURL:[NSURL URLWithString:(NSString*)data]];
-//    if (position == 0) {
-//        cell.image.image = [UIImage imageNamed:@"nav1"];
-//    } else {
-//        cell.image.image = nil;
-//    }
-    
     return cell;
 }
 
