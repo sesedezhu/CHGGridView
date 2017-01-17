@@ -51,8 +51,9 @@
     
     _pageControl.numberOfPages = page;
     _pageControl.currentPage = currPage;
-    _pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
+    _pageControl.currentPageIndicatorTintColor = [UIColor redColor];;
     _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    _pageControl.userInteractionEnabled = NO;
     [_gridView reloadData];
 }
 
@@ -92,7 +93,7 @@
     
     _pageControl.numberOfPages = page;
     _pageControl.currentPage = currPage;
-    _pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
+    _pageControl.currentPageIndicatorTintColor = [UIColor redColor];;
     _pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
 }
 
@@ -126,6 +127,10 @@
 }
 
 -(void)gridViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+}
+
+-(void)gridViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     
 }
 
